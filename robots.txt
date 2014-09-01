@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://liorrm.github.io/sitemap.xml 
+Sitemap: http://blog.liorrmorrison.com/sitemap.xml 
