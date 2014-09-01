@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://liorrm.github.io
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://blog.liorrmorrison.com
+title: Liorr Yehuda Morrison
+subtitle: Navigating the World of Software Development
+author: Liorr Yehuda Morrison
 simple_search: https://www.google.com/search
 description:
 
@@ -27,12 +27,12 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-permalink: /blog/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
 source: source
 destination: public
 plugins: plugins
 code_dir: downloads/code
-category_dir: blog/categories
+category_dir: categories
 markdown: rdiscount
 rdiscount:
   extensions:
@@ -98,4 +98,4 @@ disqus_show_comment_count: false
 google_analytics_tracking_id:
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
