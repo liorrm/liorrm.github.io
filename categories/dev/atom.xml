@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-09-07T12:54:25-07:00</updated>
+  <updated>2014-09-07T12:57:58-07:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -41,16 +41,17 @@ end</code></p>
 
 <p>Consider the following method, which takes a string as an argument and obfuscates any social security number the string might contain:</p>
 
-<p><code>def hide_all_ssns(string)
+<pre><code class="ruby">def hide_all_ssns(string)
   pattern = /\d{3}.*?\d{2}.*?(\d{4})/
   string.gsub(pattern, 'XXX-XX-\1')
-end</code></p>
+end```
 
-<p>The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X&rsquo;s.</p>
+The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X's.
 
-<p>Here&rsquo;s a test that will check whether or not the <code>hide_all_ssns(string</code> method does what it&rsquo;s designed to do:</p>
+Here's a test that will check whether or not the `hide_all_ssns(string` method does what it's designed to do:
+</code></pre>
 
-<p>`describe &ldquo;hide_all_ssns&rdquo; do
+<p>describe &ldquo;hide_all_ssns&rdquo; do
   it &ldquo;is defined as a method&rdquo; do
     expect(defined?(hide_all_ssns)).to eq &ldquo;method&rdquo;
   end</p>
@@ -63,7 +64,7 @@ end</code></p>
     string = &ldquo;please confirm your identity: XXX-XX-1422&rdquo;
     expect(hide_all_ssns(string)).to eq string
   end
-end`</p>
+end&#8220;`</p>
 
 <p>As you can see, there are three tests: The first checks whether or not <code>hide_all_ssns</code> is a method, the second one checks whether it obfuscates the SSNs, and the third one checks whether it alters a string without any SSN matches - but I didn&rsquo;t even need to explain that! You can see exactly what the test is testing by just reading it!</p>
 
