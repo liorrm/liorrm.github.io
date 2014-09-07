@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-09-07T14:31:47-07:00</updated>
+  <updated>2014-09-07T15:06:11-07:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Testing Continued]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/09/07/testing-continued/"/>
+    <updated>2014-09-07T14:33:58-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/09/07/testing-continued</id>
+    <content type="html"><![CDATA[<p>A few more notes to add about testing.
+The entire testing process is comprised of different types of testing, including unit testing, feature testing, and integration testing.</p>
+
+<p>-Unit Testing</p>
+
+<p>Unit testing is the process of testing small units of code before implementing and integrating them into functionalities of a software. For example, if you were building a website that took credit card payments and wanted to check whether or not the user entered in a valid card number, you would want to make sure that the small piece of code that checks for a valid card number actually works before integrating it into the software.</p>
+
+<p>-Integration Testing</p>
+
+<p>The next step after unit testing is integration testing, which tests how those smaller units of code work in tandem. Perhaps several units of code come together to provide a working functionality element of a software, but not the entire working product.</p>
+
+<p>-Feature testing</p>
+
+<p>Feature testing is one of the last steps of the testing process in which the code comes together to form a working, functional product that a user can interface with. Feature testing may or may not be testing of the entire software, but it at the very least tests a major working component. Feature testing is usually less technical and actually involves using the software to ensure it works properly.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Testing]]></title>
