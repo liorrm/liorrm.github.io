@@ -87,26 +87,33 @@
   </header>
 
 
-<div class="entry-content"><p>These days more than ever, testing is a crucial part of agile software development. In a production environment where a developer&rsquo;s code is going to be used by potentially millions of users, the dev needs to have a level of certainty that his/her code is perfectly functional&mdash;or at least, as close to it as possible. Software can have thousands of lines of code running in the back-end, so testing that code in the development process is crucial that all elements of software function properly. This methodology is known as test-driven development (TDD), which can be broken down in the following steps (credit: joshdavis.com)</p>
+<div class="entry-content"><p>These days more than ever, testing is a crucial part of agile software development. In a production environment where a developer&rsquo;s code is going to be used by potentially millions of users, the dev needs to have a level of certainty that his/her code is perfectly functional&mdash;or at least, as close to it as possible. Software can have thousands of lines of code running in the back-end, so testing that code in the development process is crucial that all elements of software function properly. This methodology is known as test-driven development (TDD), which can be broken down in the following steps (credit: [joshdavis.com])</p>
 
-<ol>
+<blockquote><ol>
 <li><p>First the developer writes some tests.</p></li>
 <li><p>The developer then runs those tests and (obviously) they fail because none of those features are actually implemented.</p></li>
 <li><p>Next the developer actually implements those tests in code.</p></li>
 <li><p>If the developer writes his code well, then the in next stage he will see his tests pass.</p></li>
 <li><p>The developer can then refactor his code, add comments, clean it up, as he wishes because the developer knows that if the new code breaks something, then the tests will alert him by failing.</p></li>
 </ol>
+</blockquote>
+
+<p>One such tool for TDD in Ruby is called RSpec, which is a Ruby testing framework packaged in a gem that allows the user to write highly readable tests for Ruby code. Here is an example of an RSpec test that tests whether the Hash method actually returns what the programmer expects:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Hash</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should return a blank instance&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="p">{}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p>One such tool for TDD in Ruby is called RSpec, which is a Ruby gem (extra feature) that allows the user to write highly readable tests for Ruby code. Here is an example of an RSpec test that tests whether the Hash method actually returns what the programmer expects:</p>
-
-<p><code>describe Hash do
-  it "should return a blank instance" do
-    Hash.new.should == {}
-  end
-end</code></p>
-
-<p>As you can see, the test reads almost exactly like plain English&mdash;even more so than Ruby!&mdash;with keywords like <code>describe</code> <code>it</code> and <code>should</code>. RSpec tests are typically written under the Ruby code in the same file, and are run by opening the file with RSpec instead of Ruby in the command line.</p>
+<p>As you can see, the test reads almost exactly like plain English&mdash;even more so than Ruby!&mdash;with keywords like <code>describe</code>, <code>it</code>, and <code>should</code>. RSpec tests are typically written under the Ruby code in the same file, and are run by opening the file with RSpec instead of Ruby in the command line.</p>
 
 <p>Consider the following method, which takes a string as an argument and obfuscates any social security number the string might contain:</p>
 
@@ -123,7 +130,7 @@ end</code></p>
 
 <p>The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X&rsquo;s.</p>
 
-<p>Here&rsquo;s a test that will check whether or not the <code>hide_all_ssns(string</code> method does what it&rsquo;s designed to do:</p>
+<p>Here&rsquo;s a test that will check whether or not the <code>hide_all_ssns(string)</code> method does what it&rsquo;s designed to do:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -160,11 +167,14 @@ end</code></p>
 
 <p>To test the <code>hide_all_ssns</code> method, simply call the file with RSpec in the terminal like so:</p>
 
-<p><code>rspec hide_ssns.rb</code></p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rspec hide_ssns.rb
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>which will return the results of the test in the terminal. If it passes, it will say: <code>3 examples, 0 failures</code>, and if one or more of the tests fail, it will give you a breakdown of what the test expected vs. what it got.</p>
 
-<p>RSpec is the Ruby testing tool, but rest assured that other languages have their own RSpec equivalent, like Jasmine for JavaSript&mdash;which reads very similarly to RSpec.</p>
+<p>RSpec is the Ruby testing tool, but rest assured that other languages have their own RSpec equivalent, like Jasmine for JavaScript&mdash;which reads very similarly to RSpec.</p>
 </div>
 
 
