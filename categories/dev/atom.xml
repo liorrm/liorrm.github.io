@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-09-07T15:06:11-07:00</updated>
+  <updated>2014-09-07T15:30:21-07:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Request-Response]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/09/07/request-response/"/>
+    <updated>2014-09-07T15:12:29-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/09/07/request-response</id>
+    <content type="html"><![CDATA[<p>Request-Response is the fundamental building block of the Internet and computer networking. The systems works likes so:</p>
+
+<p>A user on a personal computer, the client, uses a web browser to access a web page stored on a remote database. The database is linked to a computer that acts as the server, which can access the database and provide the requested information to the client. The client requests the information from the server, and the server responds to the client with the information requested by accessing the database. During the early years of the Internet, the web was dominated by static websites that, when requested by the client, were generated and didn&rsquo;t change unless manually re-generated. Today, however, there are a plethora of technologies that allow for dynamic web pages, where there is a constant flow of communication between the client and the server, allowing content to change from moment to moment. The main technology that made these dynamic web pages a reality is AJAX, which is behind almost all of the asynchronous, dynamic web applications that dominate today&rsquo;s Internet.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Testing Continued]]></title>
