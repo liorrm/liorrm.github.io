@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://blog.liorrmorrison.com/2014/09/07/testing/</loc>
+    <lastmod>2014-09-07T11:58:09-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.liorrmorrison.com/2014/09/01/comp-sci-snippet/</loc>
     <lastmod>2014-09-01T11:24:23-07:00</lastmod>
     <priority>0.8</priority>
@@ -11,14 +17,14 @@
   
   <url>
     <loc>http://blog.liorrmorrison.com/archives/</loc>
-    <lastmod>2014-09-01T22:33:55-07:00</lastmod>
+    <lastmod>2014-09-07T12:54:25-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://blog.liorrmorrison.com/</loc>
-    <lastmod>2014-09-01T22:33:55-07:00</lastmod>
+    <lastmod>2014-09-07T12:54:25-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

@@ -4,7 +4,7 @@
   <title><![CDATA[Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-09-01T22:33:55-07:00</updated>
+  <updated>2014-09-07T12:54:25-07:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Testing]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/09/07/testing/"/>
+    <updated>2014-09-07T11:58:09-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/09/07/testing</id>
+    <content type="html"><![CDATA[<p>These days more than ever, testing is a crucial part of agile software development. In a production environment where a developer&rsquo;s code is going to be used by potentially millions of users, the dev needs to have a level of certainty that his/her code is perfectly functional&mdash;or at least, as close to it as possible. Software can have thousands of lines of code running in the back-end, so testing that code in the development process is crucial that all elements of software function properly. This methodology is known as test-driven development (TDD), which can be broken down in the following steps (credit: joshdavis.com)</p>
+
+<ol>
+<li><p>First the developer writes some tests.</p></li>
+<li><p>The developer then runs those tests and (obviously) they fail because none of those features are actually implemented.</p></li>
+<li><p>Next the developer actually implements those tests in code.</p></li>
+<li><p>If the developer writes his code well, then the in next stage he will see his tests pass.</p></li>
+<li><p>The developer can then refactor his code, add comments, clean it up, as he wishes because the developer knows that if the new code breaks something, then the tests will alert him by failing.</p></li>
+</ol>
+
+
+<p>One such tool for TDD in Ruby is called RSpec, which is a Ruby gem (extra feature) that allows the user to write highly readable tests for Ruby code. Here is an example of an RSpec test that tests whether the Hash method actually returns what the programmer expects:</p>
+
+<p><code>describe Hash do
+  it "should return a blank instance" do
+    Hash.new.should == {}
+  end
+end</code></p>
+
+<p>As you can see, the test reads almost exactly like plain English&mdash;even more so than Ruby!&mdash;with keywords like <code>describe</code> <code>it</code> and <code>should</code>. RSpec tests are typically written under the Ruby code in the same file, and are run by opening the file with RSpec instead of Ruby in the command line.</p>
+
+<p>Consider the following method, which takes a string as an argument and obfuscates any social security number the string might contain:</p>
+
+<p><code>def hide_all_ssns(string)
+  pattern = /\d{3}.*?\d{2}.*?(\d{4})/
+  string.gsub(pattern, 'XXX-XX-\1')
+end</code></p>
+
+<p>The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X&rsquo;s.</p>
+
+<p>Here&rsquo;s a test that will check whether or not the <code>hide_all_ssns(string</code> method does what it&rsquo;s designed to do:</p>
+
+<p>`describe &ldquo;hide_all_ssns&rdquo; do
+  it &ldquo;is defined as a method&rdquo; do
+    expect(defined?(hide_all_ssns)).to eq &ldquo;method&rdquo;
+  end</p>
+
+<p>  it &ldquo;obfuscates any SSNs in the string&rdquo; do
+    expect(hide_all_ssns(&ldquo;234-60-1422, 350-80-0744, 013-60-8762&rdquo;)).to eq &ldquo;XXX-XX-1422, XXX-XX-0744, XXX-XX-8762&rdquo;
+  end</p>
+
+<p>  it &ldquo;does not alter a string without SSNs in it&rdquo; do
+    string = &ldquo;please confirm your identity: XXX-XX-1422&rdquo;
+    expect(hide_all_ssns(string)).to eq string
+  end
+end`</p>
+
+<p>As you can see, there are three tests: The first checks whether or not <code>hide_all_ssns</code> is a method, the second one checks whether it obfuscates the SSNs, and the third one checks whether it alters a string without any SSN matches - but I didn&rsquo;t even need to explain that! You can see exactly what the test is testing by just reading it!</p>
+
+<p>To test the <code>hide_all_ssns</code> method, simply call the file with RSpec in the terminal like so:</p>
+
+<p><code>rspec hide_ssns.rb</code></p>
+
+<p>which will return the results of the test in the terminal. If it passes, it will say: <code>3 examples, 0 failures</code>, and if one or more of the tests fail, it will give you a breakdown of what the test expected vs. what it got.</p>
+
+<p>RSpec is the Ruby testing tool, but rest assured that other languages have their own RSpec equivalent, like Jasmine for JavaSript&mdash;which reads very similarly to RSpec.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Comp Sci Snippet]]></title>
