@@ -1,184 +1,98 @@
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Comp Sci Snippet - Liorr Yehuda Morrison</title>
-  <meta name="author" content="Liorr Yehuda Morrison">
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8">
+	<title>Comp Sci Snippet | Liorr Yehuda Morrison</title>
 
-  
-  <meta name="description" content="For my first blog post, a snippet of raw computer science: how are arrays stored in computer memory, as they relate to the Ruby programming language &hellip;">
-  
+	<meta name="author" content="Liorr Yehuda Morrison">
+	
+	<meta name="description" content="Liorr Yehuda Morrison 01 Sep 2014 Comp Sci Snippet For my first blog post, a snippet of raw computer science: how are arrays stored in computer &hellip;">
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
-  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/09/01/comp-sci-snippet">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Liorr Yehuda Morrison" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
+	<link href="/atom.xml" rel="alternate" title="Liorr Yehuda Morrison" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400" />
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Liorr Yehuda Morrison</a></h1>
+<body class="post-template">
+  <main class="content" role="main"><article class="post">
   
-    <h2>Navigating the World of Software Development</h2>
-  
-</hgroup>
+	<header class="post-header">
+		<a id="blog-logo" href="/">Liorr Yehuda Morrison</a>
+	</header>
+	<span class="post-meta">01 Sep 2014</span>
+	<h1 class="post-title">Comp Sci Snippet</h1>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:blog.liorrmorrison.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">Comp Sci Snippet</h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-09-01T11:24:23-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>11:24 am</span></time>
-        
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://blog.liorrmorrison.com">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><p>For my first blog post, a snippet of raw computer science: how are arrays stored in computer memory, as they relate to the Ruby programming language? First, let me marvel for a moment at the many degrees of abstraction between Ruby and what the computer processor ultimately processes: binary, or a series of 0&rsquo;s and 1&rsquo;s. Before knowing anything about computer programming, I used to think that programmers were of a rare nerdy breed of (maybe?) human who know the ins and outs of computers <em>so</em> thoroughly, they&rsquo;re practically computers themselves. This notion was probably influenced by a brainy elementary school classmate I had who, years after knowing him, went on to win a prestigious international coding contest. Perhaps <em>he</em> was one of those (human?) types, but one could theoretically be an excellent programmer without knowing much about how computers work. High-level programming languages&mdash;of which Ruby is an excellent example&mdash;provide that luxury, as their syntax, vocabulary, and flow are highly readable, so much so that a non-programmer could make sense of a basic Ruby program. This point is where the degrees of abstraction come in. Ruby itself is programmed using another language entirely, the C programming language, which, in its heyday, was considered a high-level, many-degrees-of-abstraction language as well. That&rsquo;s not to say C is obsolete — by no means! - but it is just fell in the ranks of high-level languages. And C, too, is built on other languages, which, moving down the latter of abstraction, eventually leads to assembly languages, then ultimately to machine code, which is the binary code that the CPU actually reads. Most programmers today, especially web developers, only have command over high-level languages, leaving the lower-level stuff all but unseen.</p>
+	<section class="post-content">
+		<p>For my first blog post, a snippet of raw computer science: how are arrays stored in computer memory, as they relate to the Ruby programming language? First, let me marvel for a moment at the many degrees of abstraction between Ruby and what the computer processor ultimately processes: binary, or a series of 0&rsquo;s and 1&rsquo;s. Before knowing anything about computer programming, I used to think that programmers were of a rare nerdy breed of (maybe?) human who know the ins and outs of computers <em>so</em> thoroughly, they&rsquo;re practically computers themselves. This notion was probably influenced by a brainy elementary school classmate I had who, years after knowing him, went on to win a prestigious international coding contest. Perhaps <em>he</em> was one of those (human?) types, but one could theoretically be an excellent programmer without knowing much about how computers work. High-level programming languages&mdash;of which Ruby is an excellent example&mdash;provide that luxury, as their syntax, vocabulary, and flow are highly readable, so much so that a non-programmer could make sense of a basic Ruby program. This point is where the degrees of abstraction come in. Ruby itself is programmed using another language entirely, the C programming language, which, in its heyday, was considered a high-level, many-degrees-of-abstraction language as well. That&rsquo;s not to say C is obsolete — by no means! - but it is just fell in the ranks of high-level languages. And C, too, is built on other languages, which, moving down the latter of abstraction, eventually leads to assembly languages, then ultimately to machine code, which is the binary code that the CPU actually reads. Most programmers today, especially web developers, only have command over high-level languages, leaving the lower-level stuff all but unseen.</p>
 
 <p>With all these layers of abstraction between high-level languages like Ruby and machine code, the answer to how arrays are stored in the computer&rsquo;s memory as they relate to Ruby might be&hellip;well, Ruby-like, in that the explanation will be understandable to the human reader, but not explain what is happening deep down in the RAM memory module, which is basically all electricity (there is actually nothing physical happening). An array is a Ruby <code>Class</code> defined by a collection of comma separated elements; you can have an array of numbers like <code>num_array = [1, 2, 3]</code>, an array of strings like <code>str_array = ["hi", "ho", "chitty", "chitty", "bang," "bang"]</code> or an array of any combination of types of elements like <code>mixed_array = [1, "chitty", :oh_my]</code>. When an array is created in Ruby, in addition to storing the array elements, the identity (basically, the &ldquo;address&rdquo; of where that array element lives in the memory) of each array element is also stored. Each Array element is stored in consecutive memory locations as the array&rsquo;s organization suggests, allowing for quick, easy access, rather than being stored at random locations, which would make calling and manipulating the array more time-consuming (even though the difference would be infinitesimal and undetectable to humans).</p>
+
+	</section>
+
+  <footer class="post-footer">
+  <section class="author">
+    <h4>Liorr Yehuda Morrison</h4>
+    <p></p>
+  </section>
+  <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?text=Comp Sci Snippet&amp;url=http://blog.liorrmorrison.com/2014/09/01/comp-sci-snippet/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.liorrmorrison.com/2014/09/01/comp-sci-snippet/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://blog.liorrmorrison.com/2014/09/01/comp-sci-snippet/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+    </a>
+  </section>
+</footer>
+  <hr>
+  
+    <div class="share">
 </div>
 
-
-  <footer>
-    <p class="meta">
-      
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Liorr Yehuda Morrison</span></span>
-
-      
-
-
-
-
-<time class='entry-date' datetime='2014-09-01T11:24:23-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>11:24 am</span></time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/categories/dev/'>dev</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/09/01/comp-sci-snippet/" data-via="" data-counturl="http://blog.liorrmorrison.com/2014/09/01/comp-sci-snippet/" >Tweet</a>
   
   
-  
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
-  
-</div>
-
-    
-    <p class="meta">
-      
-      
-        <a class="basic-alignment right" href="/2014/09/07/testing/" title="Next Post: Testing">Testing &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <h1>Comments</h1>
+  <section id="comment">
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
   </section>
+  
+</article></main>
+  <footer class="site-footer"><a class="subscribe icon-feed" href="http://blog.liorrmorrison.com/atom.xml"><span class="tooltip">Subscribe!</span></a>
+
+
+<div class="inner">
+
+
+
+
+
+
+
+
+
+<section class="copyright">All content copyright <a href="/">Liorr Yehuda Morrison</a> © 2014 • All rights reserved.</section>
+
+<section class="poweredby">Casper theme by <a class="icon-ghost" href="http://tryghost.org">Ghost</a> &amp; Published with <a href="http://octopress.org">Octopress</a></section>
 
 </div>
-
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/2014/09/07/testing/">Testing</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/09/01/comp-sci-snippet/">Comp Sci Snippet</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Liorr Yehuda Morrison -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
 </footer>
-  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//yandex.st/highlightjs/7.3/highlight.min.js"></script>  
+<script>hljs.initHighlightingOnLoad()</script>
+
 
 <script type="text/javascript">
       var disqus_shortname = 'liorrm';
@@ -195,32 +109,6 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
 
 
 
