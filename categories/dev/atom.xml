@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-09-07T12:57:58-07:00</updated>
+  <updated>2014-09-07T13:00:28-07:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -44,27 +44,28 @@ end</code></p>
 <pre><code class="ruby">def hide_all_ssns(string)
   pattern = /\d{3}.*?\d{2}.*?(\d{4})/
   string.gsub(pattern, 'XXX-XX-\1')
-end```
-
-The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X's.
-
-Here's a test that will check whether or not the `hide_all_ssns(string` method does what it's designed to do:
+end
 </code></pre>
 
-<p>describe &ldquo;hide_all_ssns&rdquo; do
-  it &ldquo;is defined as a method&rdquo; do
-    expect(defined?(hide_all_ssns)).to eq &ldquo;method&rdquo;
-  end</p>
+<p>The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X&rsquo;s.</p>
 
-<p>  it &ldquo;obfuscates any SSNs in the string&rdquo; do
-    expect(hide_all_ssns(&ldquo;234-60-1422, 350-80-0744, 013-60-8762&rdquo;)).to eq &ldquo;XXX-XX-1422, XXX-XX-0744, XXX-XX-8762&rdquo;
-  end</p>
+<p>Here&rsquo;s a test that will check whether or not the <code>hide_all_ssns(string</code> method does what it&rsquo;s designed to do:</p>
 
-<p>  it &ldquo;does not alter a string without SSNs in it&rdquo; do
-    string = &ldquo;please confirm your identity: XXX-XX-1422&rdquo;
+<pre><code class="ruby">describe "hide_all_ssns" do
+  it "is defined as a method" do
+    expect(defined?(hide_all_ssns)).to eq "method"
+  end
+
+  it "obfuscates any SSNs in the string" do
+    expect(hide_all_ssns("234-60-1422, 350-80-0744, 013-60-8762")).to eq "XXX-XX-1422, XXX-XX-0744, XXX-XX-8762"
+  end
+
+  it "does not alter a string without SSNs in it" do
+    string = "please confirm your identity: XXX-XX-1422"
     expect(hide_all_ssns(string)).to eq string
   end
-end&#8220;`</p>
+end
+</code></pre>
 
 <p>As you can see, there are three tests: The first checks whether or not <code>hide_all_ssns</code> is a method, the second one checks whether it obfuscates the SSNs, and the third one checks whether it alters a string without any SSN matches - but I didn&rsquo;t even need to explain that! You can see exactly what the test is testing by just reading it!</p>
 

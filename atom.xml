@@ -4,7 +4,7 @@
   <title><![CDATA[Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-09-07T12:57:58-07:00</updated>
+  <updated>2014-09-07T13:00:28-07:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -45,36 +45,47 @@ end</code></p>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hide_all_ssns</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">pattern</span> <span class="o">=</span> <span class="sr">/\d{3}.*?\d{2}.*?(\d{4})/</span>
+</span><span class='line'>  <span class="n">string</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">&#39;XXX-XX-\1&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X&rsquo;s.</p>
+
+<p>Here&rsquo;s a test that will check whether or not the <code>hide_all_ssns(string</code> method does what it&rsquo;s designed to do:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hide_all_ssns</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">pattern</span> <span class="o">=</span> <span class="sr">/\d{3}.*?\d{2}.*?(\d{4})/</span>
-</span><span class='line'>  <span class="n">string</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">&#39;XXX-XX-\1&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span><span class="sb">```</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="s2">&quot;hide_all_ssns&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;is defined as a method&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">expect</span><span class="p">(</span><span class="n">defined?</span><span class="p">(</span><span class="n">hide_all_ssns</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="s2">&quot;method&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="sb">The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X&#39;s.</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;obfuscates any SSNs in the string&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">expect</span><span class="p">(</span><span class="n">hide_all_ssns</span><span class="p">(</span><span class="s2">&quot;234-60-1422, 350-80-0744, 013-60-8762&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="s2">&quot;XXX-XX-1422, XXX-XX-0744, XXX-XX-8762&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="sb">Here&#39;s a test that will check whether or not the `</span><span class="n">hide_all_ssns</span><span class="p">(</span><span class="n">string</span><span class="sb">` method does what it&#39;s designed to do:</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;does not alter a string without SSNs in it&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;please confirm your identity: XXX-XX-1422&quot;</span>
+</span><span class='line'>    <span class="n">expect</span><span class="p">(</span><span class="n">hide_all_ssns</span><span class="p">(</span><span class="n">string</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="n">string</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>ruby
-describe &ldquo;hide_all_ssns&rdquo; do
-  it &ldquo;is defined as a method&rdquo; do
-    expect(defined?(hide_all_ssns)).to eq &ldquo;method&rdquo;
-  end</p>
-
-<p>  it &ldquo;obfuscates any SSNs in the string&rdquo; do
-    expect(hide_all_ssns(&ldquo;234-60-1422, 350-80-0744, 013-60-8762&rdquo;)).to eq &ldquo;XXX-XX-1422, XXX-XX-0744, XXX-XX-8762&rdquo;
-  end</p>
-
-<p>  it &ldquo;does not alter a string without SSNs in it&rdquo; do
-    string = &ldquo;please confirm your identity: XXX-XX-1422&rdquo;
-    expect(hide_all_ssns(string)).to eq string
-  end
-end&#8220;`</p>
 
 <p>As you can see, there are three tests: The first checks whether or not <code>hide_all_ssns</code> is a method, the second one checks whether it obfuscates the SSNs, and the third one checks whether it alters a string without any SSN matches - but I didn&rsquo;t even need to explain that! You can see exactly what the test is testing by just reading it!</p>
 
