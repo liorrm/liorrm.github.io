@@ -20,7 +20,7 @@ The "language" used in this process is called the Hypertext Transper Protocol, a
 
 
 * POST is the request that the server accept a new piece of information enclosed in the request; a typical example of this is a blog or forum, where clients are adding posts that change the state of the server, or have other side effects (like transferring money or sending an email). Because something is being changed with the POST method, it is not considered a safe
->method.
+method.
 
 
 * DELETE is the request that a given piece of information or resource be deleted by the server, like deleting an email. Again, because the state of the server is being changed, it is not considered a safe method.
