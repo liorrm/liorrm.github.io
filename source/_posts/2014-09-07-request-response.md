@@ -10,7 +10,7 @@ Request-Response is the fundamental building block of the Internet and computer 
 
 A personal computer, the *client*, is used to access a web page stored on a remote database. The database is linked to a computer that acts as the *server*, which can access the database and provide the requested information to the client. Using a web browser, the client requests the web page from the server, and the server responds to the client with the requested information by accessing the database. It's no coincidence that the words *client* and *server* are used for this system, as it's very analogous to a restaurant. The client, or customer, orders the food by telling the server, or waiter, what he/she wants ("Hi, I'll have a google burger please"). The waiter then goes to the kitchen, the database, gets the order, and serves it to the "client"/customer. Now it all makes sense why sometimes, when a server experiences higher-than-normal requests, it wont be able to respond to all of them, and will temporarily shut down. This is akin to how a restaurant will often make customers wait during peak hours, because they simple can't handle all those orders at once!
 
-##  HTTP ##
+####  HTTP ####
 
 The "language" used in this process is called the Hypertext Transper Protocol, and includes request "methods", the most oft used being GET, HEAD, POST, and DELETE.
 
