@@ -9,7 +9,7 @@
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="Request-Response is the fundamental building block of the Internet and computer networking. The systems works likes so: A user on a personal computer &hellip;">
+  <meta name="description" content="Request-Response is the fundamental building block of the Internet and computer networking. The systems works likes so: A personal computer, the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,7 +89,17 @@
 
 <div class="entry-content"><p>Request-Response is the fundamental building block of the Internet and computer networking. The systems works likes so:</p>
 
-<p>A user on a personal computer, the client, uses a web browser to access a web page stored on a remote database. The database is linked to a computer that acts as the server, which can access the database and provide the requested information to the client. The client requests the information from the server, and the server responds to the client with the information requested by accessing the database. During the early years of the Internet, the web was dominated by static websites that, when requested by the client, were generated and didn&rsquo;t change unless manually re-generated. Today, however, there are a plethora of technologies that allow for dynamic web pages, where there is a constant flow of communication between the client and the server, allowing content to change from moment to moment. The main technology that made these dynamic web pages a reality is AJAX, which is behind almost all of the asynchronous, dynamic web applications that dominate today&rsquo;s Internet.</p>
+<p>A personal computer, the client, is used to access a web page stored on a remote database. The database is linked to a computer that acts as the server, which can access the database and provide the requested information to the client. Using a web browser, the client requests the web page from the server, and the server responds to the client with the requested information by accessing the database. It&rsquo;s no coincidence that the words &ldquo;client&rdquo; and &ldquo;server&rdquo; are used for this system, as it&rsquo;s very analogous to a restaurant. The &ldquo;client&rdquo;, or customer, orders the food by telling the &ldquo;server&rdquo;/waiter what he/she wants (&ldquo;Hi, I&rsquo;ll have a google burger please&rdquo;). The waiter then goes to the kitchen, the &ldquo;database&rdquo;, gets the order, and serves it to the &ldquo;client&rdquo;/customer. Now it all makes sense why sometimes, when a server experiences higher-than-normal requests, it wont be able to respond to all of them, and will temporarily shut down. This is akin to how a restaurant will often make customers wait during peak hours, because they simple can&rsquo;t handle all those orders at once! The &ldquo;language&rdquo; used in this pricess is called the Hypertext Transper Protocol, and includes request &ldquo;methods&rdquo;, the most oft used being GET, POST, and DELETE.</p>
+
+<blockquote><p>GET is, as you could guess, is the request for retrieving data.
+Going to google.com, for example, would use the GET http method. >Because it does not modify anything on the server-side, it is    >considered a &ldquo;safe&rdquo; method.</p>
+
+<p>POST is the request that the server accept a new piece of        >information enclosed in the request; a typical example of this   >is a blog or forum, where clients are adding posts that change   >the state of the server, or have other side effects (like        >transferring money or sending an email). Because something is   > being changed with the POST method, it is not considered a safe
+method.</p>
+
+<p>DELETE is the request that a given piece of information or       >resource be deleted by the server, like deleting an email.      > Again, because the state of the server is being changed, it is > not considered a safe method.</p></blockquote>
+
+<p>During the early years of the Internet, the web was dominated by static websites that, when requested by the client, were generated and didn&rsquo;t change unless another request was made for the most up-to-date version. Today, however, there are a plethora of technologies that allow for dynamic web pages, where there is a constant flow of communication between the client and the server, allowing content to change from moment to moment without disrupting the fundamental. The main technology that made these dynamic web pages a reality is AJAX, which is behind almost all of the asynchronous, dynamic web applications that dominate today&rsquo;s Internet. AJAX allows</p>
 </div>
 
 
