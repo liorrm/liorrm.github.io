@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://blog.liorrmorrison.com/2014/09/12/who-i-am/</loc>
+    <lastmod>2014-09-12T22:06:40-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.liorrmorrison.com/2014/09/07/request-response/</loc>
     <lastmod>2014-09-07T15:12:29-07:00</lastmod>
     <priority>0.8</priority>
@@ -29,14 +35,14 @@
   
   <url>
     <loc>http://blog.liorrmorrison.com/archives/</loc>
-    <lastmod>2014-09-08T16:02:44-07:00</lastmod>
+    <lastmod>2014-09-14T11:13:39-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://blog.liorrmorrison.com/</loc>
-    <lastmod>2014-09-08T16:02:44-07:00</lastmod>
+    <lastmod>2014-09-14T11:13:39-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
