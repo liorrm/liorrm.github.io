@@ -4,7 +4,7 @@
   <title><![CDATA[Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T11:35:40-08:00</updated>
+  <updated>2014-11-10T11:38:42-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Arrays &amp; Hashes: One Is Silver and the Other Gold]]></title>
-    <link href="http://blog.liorrmorrison.com/2014/11/10/arrays-and-hashes-one-is-silver-and-the-other-gold/"/>
-    <updated>2014-11-10T11:22:53-08:00</updated>
-    <id>http://blog.liorrmorrison.com/2014/11/10/arrays-and-hashes-one-is-silver-and-the-other-gold</id>
+    <link href="http://blog.liorrmorrison.com/2014/09/30/arrays-and-hashes-one-is-silver-and-the-other-gold/"/>
+    <updated>2014-09-30T14:22:53-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/09/30/arrays-and-hashes-one-is-silver-and-the-other-gold</id>
     <content type="html"><![CDATA[<p>Now almost a third of the way through Phase 0 of Dev Bootcamp, we&rsquo;ve finally moved on from git, HTML, and CSS to the true heart and soul of programming: scripting &ndash; the part that actually makes your web site do stuff rather than just display it. For the first blog topic, we&rsquo;ll discuss arrays and hashes, which are two ways of storing data. Arrays and hashes are each their own classes in the Ruby programming language, meaning they come with their own set of rules that govern how they can be used, and methods than can manipulate the data within them. First let&rsquo;s talk about arrays, since they&rsquo;re simpler, and understanding hashes is easier once you understand arrays.</p>
 
 <p>An array is a series of elements grouped and stored together, separated by commas. They are encapsulated by a pair of brackets on both ends of the series of elements. The elements can be of various types, including strings, numbers, symbols, etc, such as the example below illustrates:</p>
