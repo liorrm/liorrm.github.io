@@ -9,7 +9,7 @@
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="For my first blog post, a snippet of raw computer science: how are arrays stored in computer memory, as they relate to the Ruby programming language &hellip;">
+  <meta name="description" content="These days more than ever, testing is a crucial part of agile software development. In a production environment where a developer&rsquo;s code is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,125 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2014/09/07/testing/">Testing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-07T11:58:09-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:58 am</span></time>
+        
+           | <a href="/2014/09/07/testing/#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com/2014/09/07/testing/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>These days more than ever, testing is a crucial part of agile software development. In a production environment where a developer&rsquo;s code is going to be used by potentially millions of users, the dev needs to have a level of certainty that his/her code is perfectly functional&mdash;or at least, as close to it as possible. Software can have thousands of lines of code running in the back-end, so testing that code in the development process is crucial that all elements of software function properly. This methodology is known as test-driven development (TDD), which can be broken down in the following steps (credit: <a href="http://joshdavis.com">Josh Davis</a>)</p>
+
+<blockquote><ol>
+<li><p>First the developer writes some tests.</p></li>
+<li><p>The developer then runs those tests and (obviously) they fail because none of those features are actually implemented.</p></li>
+<li><p>Next the developer actually implements those tests in code.</p></li>
+<li><p>If the developer writes his code well, then in the next stage he will see his tests pass.</p></li>
+<li><p>The developer can then refactor his code, add comments, clean it up, as he wishes because the developer knows that if the new code breaks something, then the tests will alert him by failing.</p></li>
+</ol>
+</blockquote>
+
+<p>One such tool for TDD in Ruby is called RSpec, which is a Ruby testing framework packaged in a gem that allows the user to write highly readable tests for Ruby code. Here is an example of an RSpec test that tests whether the Hash method actually returns what the programmer expects:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="no">Hash</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;should return a blank instance&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="p">{}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, the test reads almost exactly like plain English&mdash;even more so than Ruby!&mdash;with keywords like <code>describe</code>, <code>it</code>, and <code>should</code>. RSpec tests are typically written under the Ruby code in the same file, and are run by opening the file with RSpec instead of Ruby in the command line.</p>
+
+<p>Consider the following method, which takes a string as an argument and obfuscates any social security number the string might contain:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hide_all_ssns</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">pattern</span> <span class="o">=</span> <span class="sr">/\d{3}.*?\d{2}.*?(\d{4})/</span>
+</span><span class='line'>  <span class="n">string</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s1">&#39;XXX-XX-\1&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The method uses a regular expression (REGEXP), a generalized pattern that will find matches to the pattern in the string, and will replace the first 5 numbers of the SSN it finds with X&rsquo;s.</p>
+
+<p>Here&rsquo;s a test that will check whether or not the <code>hide_all_ssns(string)</code> method does what it&rsquo;s designed to do:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="s2">&quot;hide_all_ssns&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;is defined as a method&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">expect</span><span class="p">(</span><span class="n">defined?</span><span class="p">(</span><span class="n">hide_all_ssns</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="s2">&quot;method&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;obfuscates any SSNs in the string&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">expect</span><span class="p">(</span><span class="n">hide_all_ssns</span><span class="p">(</span><span class="s2">&quot;234-60-1422, 350-80-0744, 013-60-8762&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="s2">&quot;XXX-XX-1422, XXX-XX-0744, XXX-XX-8762&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">it</span> <span class="s2">&quot;does not alter a string without SSNs in it&quot;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;please confirm your identity: XXX-XX-1422&quot;</span>
+</span><span class='line'>    <span class="n">expect</span><span class="p">(</span><span class="n">hide_all_ssns</span><span class="p">(</span><span class="n">string</span><span class="p">))</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span> <span class="n">string</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, there are three tests: The first checks whether or not <code>hide_all_ssns</code> is a method, the second one checks whether it obfuscates the SSNs, and the third one checks whether it alters a string without any SSN matches - but I didn&rsquo;t even need to explain that! You can see exactly what the test is testing by just reading it!</p>
+
+<p>To test the <code>hide_all_ssns</code> method, simply call the file with RSpec in the terminal like so:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rspec hide_ssns.rb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which will return the results of the test in the terminal. If it passes, it will say: <code>3 examples, 0 failures</code>, and if one or more of the tests fail, it will give you a breakdown of what the test expected vs. what it got.</p>
+
+<p>RSpec is the Ruby testing tool, but rest assured that other languages have their own RSpec equivalent, like Jasmine for JavaScript&mdash;which reads very similarly to RSpec.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2014/09/01/comp-sci-snippet/">Comp Sci Snippet</a></h1>
     
     
@@ -115,6 +234,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/">Meta-Learning FTW: Pairing &amp; Feedback</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/10/08/tech-issues-gentrification-and-the-digital-divide/">Tech Issues: Gentrification &amp; the Digital Divide</a>
       </li>
     
@@ -128,10 +251,6 @@
     
       <li class="post">
         <a href="/2014/09/30/arrays-and-hashes-one-is-silver-and-the-other-gold/">Arrays &amp; Hashes: One Is Silver and the Other Gold</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/09/28/css-subleties-margin/">CSS Subleties: Margin, Padding, and Border</a>
       </li>
     
   </ul>

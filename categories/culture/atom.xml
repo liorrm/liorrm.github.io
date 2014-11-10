@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Culture | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/culture/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T12:47:47-08:00</updated>
+  <updated>2014-11-10T12:54:13-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Meta-Learning FTW: Pairing &amp; Feedback]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/10/17/meta-learning-ftw-pairing-and-feedback/"/>
+    <updated>2014-10-17T13:51:29-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/10/17/meta-learning-ftw-pairing-and-feedback</id>
+    <content type="html"><![CDATA[<p>Pair-programming is a magical thing, really &ndash; two programmers come together and achieve something they never thought possible. That&rsquo;s been my experience, anyway. Working with someone on a problem not only combines our brainpower, it also, in my experience, causes our individual brainpower to increase. When you find a good pairing partner, the experience is extremely enjoyable, fluid, and productive. You both play integral parts of the problem-solving process, throw around ideas, and ultimately solve the challenge in much less time (and with much less frustration) than if you were to go at it alone. The experience on the whole is very fun and rewarding. I&rsquo;ve had multiple experiences where, upon first looking at the challenge, I feel overwhelmed, but then a mere 30 minutes to an hour later, there I am looking at the solution to a problem I barely understood an hour earlier.</p>
+
+<p>The only time pairing can be frustrating is if you can&rsquo;t build rapport with your partner. I&rsquo;ve never experienced this, as I always make a point to get to know the person, at the very least on a superficial level, so that it&rsquo;s not like we&rsquo;re two robots programming together. Sometimes there are situations where your pair doesn&rsquo;t communicate effectively, but if you probe them with questions, you can usually get the answer or explanation you&rsquo;re looking for. While this type of arrangement doesn&rsquo;t leave you feeling excited about pairing with that person again, per se, you don&rsquo;t get frustrated. It&rsquo;s just a less than overwhelmingly positive experience. Having said that, I&rsquo;m sure people have had negative experiences, I&rsquo;ve just been lucky not to have one yet.</p>
+
+<p>Like pair programming, feedback is at the core of Dev Bootcamp&rsquo;s philosophy. It is an integral part of the curriculum, and we as students are required to give feedback after each pair-programming session. Overall I&rsquo;m a big fan of feedback, as it gives you the opportunity to build both your programming and people skills. My feedback has been pretty positive overall, with only some minor suggestions like, &ldquo;hey, you shouldn&rsquo;t rush through material so quickly&rdquo; or &ldquo;spend some time solidifying your grasp of Ruby.&rdquo; I would say that this feedback is generally helpful, but I think DBC students feel obliged to be more critical than they want to be. This is probably because of the fact that our feedback is rated &ndash; yes, we receive &ldquo;meta-feedback&rdquo;. The criteria for good feedback are that it is actionable, specific, and kind. I think these are good criteria, but the only gripe I have is that, if you have a nearly ideal session, sometimes you really do have nothing to complain about. But if you don&rsquo;t have any constructive criticism in your feedback, then it will score low in the &ldquo;actionable&rdquo; category. And that&rsquo;s exactly the problem &ndash; we are asked to give quantitative feedback on qualitative feedback, which is a bit paradoxical. While I benefit from giving and receiving feedback, I do not benefit from seeing how others graded my feedback. Sorry, if I have an excellent pairing session with somebody, I&rsquo;m not going to invent a criticism or force myself to be less positive just because the criteria require me to be &ldquo;actionable&rdquo;. I&rsquo;ve tried positive actionable comments like, &ldquo;keep up the good work!&rdquo; but my cohort mates don&rsquo;t seem to think that is actionable. Therefore, when I leave positive feedback, no matter how genuine it is, it will score low in the &ldquo;actionable&rdquo; category. That&rsquo;s why I don&rsquo;t put too much stock into my meta-feedback. I know for myself that I am honest and put care into the feedback I give, and if that means I am not critical, then I&rsquo;ll go ahead and take the lower &ldquo;actionable&rdquo; rating!</p>
+
+<p>To sum up, pairing and feedback are very useful tools to guide our learning as budding developers. Although the two are linked, I would say that pairing itself is the most fruitful, while feedback is good way to make changes in order to improve future pairing sessions. The meta-feedback, while a good way to make sure people aren&rsquo;t leaving one-liners, should be more flexible and open to feedback that, rather than criticizes, simply encourages a continuation of positive behavior.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Tech Issues: Gentrification &amp; the Digital Divide]]></title>
