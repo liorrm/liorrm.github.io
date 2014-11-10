@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T15:35:46-08:00</updated>
+  <updated>2014-11-10T15:41:38-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Event Listeners: The Critical Link]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/11/08/event-listeners-the-critical-link/"/>
+    <updated>2014-11-08T15:38:35-08:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/11/08/event-listeners-the-critical-link</id>
+    <content type="html"><![CDATA[<p>JavaScript event listeners are kind of like the nervous system of a website. Without them, the website does not have the ability to sense, or &ldquo;listen to&rdquo;, actions the user can take (such as clicking, pressing keys, loading the page, etc). I first learned event listeners through programming my first JS project, the <a href="http://blog.liorrmorrison.com/dbc/airport">airporter game</a>. Event listeners allow you to change or manipulate HTML/CSS elements when a certain element &ldquo;hears&rdquo; an event. To illustrate this idea, let&rsquo;s take an example from my airport game. It would help you understand this explanation if you played a quick round of the game first! In the game, I have two event listeners, one that targets the entire window and one that targets an HTML element:</p>
+
+<pre><code class="javascript">airbus.addEventListener('click', clearWay)
+window.addEventListener('keydown', move)
+</code></pre>
+
+<p>Let&rsquo;s analyze the syntax of these event listeners. The functionality of the <code>addEventListener</code> function is obvious enough, but what&rsquo;s going on with the rest of it? You call the <code>addEventListener</code> function on an HTML/DOM element. In the first example, it is being called on <code>airbus</code>, which is an a div in the HTML with the id &ldquo;airbus&rdquo;. If you have played the game, the airbus is the &ldquo;little scoundrel&rdquo; airplane that gets in the way of your progress! Now, what&rsquo;s going on in the parenthesis? The <code>addEventListener</code> function takes two parameters: an event, and a function to run when that event occurs (there is an optional boolean third parameter, but it is pretty technical so I won&rsquo;t discuss it here). In the first example, the event is &lsquo;click&rsquo;, and the function is clearWay. So when the airbus element is clicked, the clearWay function will be run. I defined the clearWay function such that it changes the element&rsquo;s top style to 200px from where it originally was lower down on the runway. How does this manifest? Well, if you click the airbus on the page, it moves up away from the runway! As for the second example, why do we target the window if we really mean to move the other airplane? Well, the &lsquo;keydown&rsquo; event can&rsquo;t really target a particular HTML DOM element. The only part of a web page that can &ldquo;hear&rdquo; it is the window itself! That allows you to use the arrow keys to control the airplane without having to click, scroll over, or do anything to the airplane itself. As you can see, the second event listener executes the &ldquo;move&rdquo; function upon the &lsquo;keydown&rsquo; event (which, in the move function, I limit to just the arrow keys). The move function changes the boeing element&rsquo;s CSS positioning. Event listeners are the link between JavaScript and HTML/CSS elements. Without them, no script would be able communicate with and manipulate the web page!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby &amp; JavaScript: The Big Players of Web Development]]></title>
@@ -355,50 +370,6 @@ end
 </code></pre>
 
 <p>And there you have a little introduction to Ruby&rsquo;s Enumerable module! Be sure to check out the <a href="http://ruby-doc.org">Ruby Documentation </a> for more information and to see other Enumerable methods.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Arrays &amp; Hashes: One Is Silver and the Other Gold]]></title>
-    <link href="http://blog.liorrmorrison.com/2014/09/30/arrays-and-hashes-one-is-silver-and-the-other-gold/"/>
-    <updated>2014-09-30T14:22:53-07:00</updated>
-    <id>http://blog.liorrmorrison.com/2014/09/30/arrays-and-hashes-one-is-silver-and-the-other-gold</id>
-    <content type="html"><![CDATA[<p>Now almost a third of the way through Phase 0 of Dev Bootcamp, we&rsquo;ve finally moved on from git, HTML, and CSS to the true heart and soul of programming: scripting &ndash; the part that actually makes your web site do stuff rather than just display it. For the first blog topic, we&rsquo;ll discuss arrays and hashes, which are two ways of storing data. Arrays and hashes are each their own classes in the Ruby programming language, meaning they come with their own set of rules that govern how they can be used, and methods than can manipulate the data within them. First let&rsquo;s talk about arrays, since they&rsquo;re simpler, and understanding hashes is easier once you understand arrays.</p>
-
-<p>An array is a series of elements grouped and stored together, separated by commas. They are encapsulated by a pair of brackets on both ends of the series of elements. The elements can be of various types, including strings, numbers, symbols, etc, such as the example below illustrates:</p>
-
-<pre><code class="ruby">example_array = ["string", :symbol, 5, ["this", "is", "crazy"]]
-</code></pre>
-
-<p>Yes, you actually can store an array inside of an array (an array within an array is called a nested array). In addition to the element itself, the array knows where the element &ldquo;lives&rdquo; (its position) inside of it, something called the <em>index</em>. The index begins at zero, so the first element of the array can be called like so:</p>
-
-<pre><code class="ruby">example_array[0] #=&gt; "string"
-</code></pre>
-
-<p>How would you call the second element of the nested array?</p>
-
-<pre><code class="ruby">example_array[3][1] #=&gt; "is"
-</code></pre>
-
-<p>Good. Now that we have an understanding of arrays, we can delve into the world of hashes. Hashes are similar to arrays in that they are also a means of storing a series of elements, but they don&rsquo;t just stop there. Hashes store relationships between its elements in what are called key-value pairs. Whereas an array could store a list of cities:</p>
-
-<pre><code class="ruby">city_array = [:New_York, :Los_Angeles, :Chicago, :Houston]
-</code></pre>
-
-<p>the hash could store them AND tell you their populations (or whatever corresponding piece of data), where the city names are the &ldquo;keys&rdquo; and the populations are the &ldquo;values&rdquo;:</p>
-
-<pre><code class="ruby">city_hash = { New_York:    8300000,
-              Los_Angeles: 3900000,
-              Chicago:    2800000,
-              Houston:    2200000  }
-</code></pre>
-
-<p> You can access a key&rsquo;s corresponding value like so:</p>
-
-<pre><code class="`ruby"> city_hash[New_York] #=&gt; 8300000
-</code></pre>
-
-<p> As you can see, hashes allow for relationships between values, compared to arrays which just list them in a series. Both are incredibly useful and are fundamental to just about any large-scale project.</p>
 ]]></content>
   </entry>
   

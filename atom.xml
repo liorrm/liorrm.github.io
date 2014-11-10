@@ -4,7 +4,7 @@
   <title><![CDATA[Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T15:35:46-08:00</updated>
+  <updated>2014-11-10T15:41:38-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Event Listeners: The Critical Link]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/11/08/event-listeners-the-critical-link/"/>
+    <updated>2014-11-08T15:38:35-08:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/11/08/event-listeners-the-critical-link</id>
+    <content type="html"><![CDATA[<p>JavaScript event listeners are kind of like the nervous system of a website. Without them, the website does not have the ability to sense, or &ldquo;listen to&rdquo;, actions the user can take (such as clicking, pressing keys, loading the page, etc). I first learned event listeners through programming my first JS project, the <a href="http://blog.liorrmorrison.com/dbc/airport">airporter game</a>. Event listeners allow you to change or manipulate HTML/CSS elements when a certain element &ldquo;hears&rdquo; an event. To illustrate this idea, let&rsquo;s take an example from my airport game. It would help you understand this explanation if you played a quick round of the game first! In the game, I have two event listeners, one that targets the entire window and one that targets an HTML element:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">airbus</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">clearWay</span><span class="p">)</span>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="nx">move</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let&rsquo;s analyze the syntax of these event listeners. The functionality of the <code>addEventListener</code> function is obvious enough, but what&rsquo;s going on with the rest of it? You call the <code>addEventListener</code> function on an HTML/DOM element. In the first example, it is being called on <code>airbus</code>, which is an a div in the HTML with the id &ldquo;airbus&rdquo;. If you have played the game, the airbus is the &ldquo;little scoundrel&rdquo; airplane that gets in the way of your progress! Now, what&rsquo;s going on in the parenthesis? The <code>addEventListener</code> function takes two parameters: an event, and a function to run when that event occurs (there is an optional boolean third parameter, but it is pretty technical so I won&rsquo;t discuss it here). In the first example, the event is &lsquo;click&rsquo;, and the function is clearWay. So when the airbus element is clicked, the clearWay function will be run. I defined the clearWay function such that it changes the element&rsquo;s top style to 200px from where it originally was lower down on the runway. How does this manifest? Well, if you click the airbus on the page, it moves up away from the runway! As for the second example, why do we target the window if we really mean to move the other airplane? Well, the &lsquo;keydown&rsquo; event can&rsquo;t really target a particular HTML DOM element. The only part of a web page that can &ldquo;hear&rdquo; it is the window itself! That allows you to use the arrow keys to control the airplane without having to click, scroll over, or do anything to the airplane itself. As you can see, the second event listener executes the &ldquo;move&rdquo; function upon the &lsquo;keydown&rsquo; event (which, in the move function, I limit to just the arrow keys). The move function changes the boeing element&rsquo;s CSS positioning. Event listeners are the link between JavaScript and HTML/CSS elements. Without them, no script would be able communicate with and manipulate the web page!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Calm Before the Storm: Phase 0 Reflections]]></title>
