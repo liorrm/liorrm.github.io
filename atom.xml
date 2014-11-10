@@ -4,7 +4,7 @@
   <title><![CDATA[Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T15:24:27-08:00</updated>
+  <updated>2014-11-10T15:30:30-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby &amp; JavaScript: The Big Players of Web Development]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/"/>
+    <updated>2014-10-31T15:52:57-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development</id>
+    <content type="html"><![CDATA[<p>Delving into the completely different world of JavaScript after having spent over a month getting cozy with Ruby was a bit of a rude awakening. Suddenly my comfort and fluency was out the window &ndash; I felt like I was starting from scratch! What had become second nature in Ruby I now had to research in JavaScript - nooooo! But after spending some hours reading and studying, I feel like I&rsquo;m finally getting my bearings.</p>
+
+<p>JavaScript and Ruby are both powerful object-oriented languages, but they are designed for two completely different purposes. Ruby is a server-side back-end language whose processes don&rsquo;t really have a visual component. Ruby processes and manipulates data and makes calls to the server&rsquo;s database. JavaScript, on the other hand, although it can be used as a server-side language (Google node.js!), is primarily a client-side language that runs in the web browser and is responsible for making websites dynamic and interactive. That&rsquo;s why, despite being a very capable scripting language, JavaScript is typically considered to be a front-end language.</p>
+
+<p>There are many other differences between these two languages as well, the most obvious of which is syntax. Ruby&rsquo;s defining characteristic is the use of the keyword end. You must use end to signal the end of a method definition, class definition, loop, or block. JavaScript, on the other hand, is distinguished by the presence of curly braces and semicolons. Let&rsquo;s compare the following two methods (one written in Ruby, the other in JavaScript) that do the same thing; see if you can figure out which is which!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">total</span> <span class="o">+=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">total</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span> <span class="c1">// =&gt; 15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">total</span> <span class="o">+=</span> <span class="n">number</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">total</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sum</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well? It&rsquo;s pretty obvious, isn&rsquo;t it? You can definitely see the similarities and figure out that each function is doing the same thing, but there are several key differences. For one, the JavaScript loop is completely different-looking from Ruby&rsquo;s <code>#each</code> method. JavaScript also requires (in most cases, though not all) a semicolon at the end of each executable statement, whereas Ruby does not. Ruby determines the extent of methods, loops, and blocks with the end keyword, while JavaScript relies on the meat of a method or loop to be wrapped in curly braces. JavaScript also requires you to use the keyword <code>var</code> at the beginning of each variable assignment.</p>
+
+<p>If I had to pick a favorite, I&rsquo;d choose Ruby hands-down&hellip; I&rsquo;m biased, of course, by my lack of experience as a developer and my familiarity with Ruby. Both languages are incredibly powerful and integral the world of software development, and I&rsquo;m sure my appreciation for JavaScript will increase as I continue to work with it and see its true potential.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Stereotype Threat: A Vicious Cycle]]></title>

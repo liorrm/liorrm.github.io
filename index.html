@@ -9,7 +9,7 @@
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="Broadly, stereotype threat is a situation in which a person feels themselves to be living out negative stereotypes associated with their social group &hellip;">
+  <meta name="description" content="Delving into the completely different world of JavaScript after having spent over a month getting cozy with Ruby was a bit of a rude awakening. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,90 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/">Ruby &amp; JavaScript: The Big Players of Web Development</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-31T15:52:57-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>3:52 pm</span></time>
+        
+           | <a href="/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Delving into the completely different world of JavaScript after having spent over a month getting cozy with Ruby was a bit of a rude awakening. Suddenly my comfort and fluency was out the window &ndash; I felt like I was starting from scratch! What had become second nature in Ruby I now had to research in JavaScript - nooooo! But after spending some hours reading and studying, I feel like I&rsquo;m finally getting my bearings.</p>
+
+<p>JavaScript and Ruby are both powerful object-oriented languages, but they are designed for two completely different purposes. Ruby is a server-side back-end language whose processes don&rsquo;t really have a visual component. Ruby processes and manipulates data and makes calls to the server&rsquo;s database. JavaScript, on the other hand, although it can be used as a server-side language (Google node.js!), is primarily a client-side language that runs in the web browser and is responsible for making websites dynamic and interactive. That&rsquo;s why, despite being a very capable scripting language, JavaScript is typically considered to be a front-end language.</p>
+
+<p>There are many other differences between these two languages as well, the most obvious of which is syntax. Ruby&rsquo;s defining characteristic is the use of the keyword end. You must use end to signal the end of a method definition, class definition, loop, or block. JavaScript, on the other hand, is distinguished by the presence of curly braces and semicolons. Let&rsquo;s compare the following two methods (one written in Ruby, the other in JavaScript) that do the same thing; see if you can figure out which is which!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">total</span> <span class="o">+=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">total</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span> <span class="c1">// =&gt; 15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">total</span> <span class="o">+=</span> <span class="n">number</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">total</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sum</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well? It&rsquo;s pretty obvious, isn&rsquo;t it? You can definitely see the similarities and figure out that each function is doing the same thing, but there are several key differences. For one, the JavaScript loop is completely different-looking from Ruby&rsquo;s <code>#each</code> method. JavaScript also requires (in most cases, though not all) a semicolon at the end of each executable statement, whereas Ruby does not. Ruby determines the extent of methods, loops, and blocks with the end keyword, while JavaScript relies on the meat of a method or loop to be wrapped in curly braces. JavaScript also requires you to use the keyword <code>var</code> at the beginning of each variable assignment.</p>
+
+<p>If I had to pick a favorite, I&rsquo;d choose Ruby hands-down&hellip; I&rsquo;m biased, of course, by my lack of experience as a developer and my familiarity with Ruby. Both languages are incredibly powerful and integral the world of software development, and I&rsquo;m sure my appreciation for JavaScript will increase as I continue to work with it and see its true potential.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -968,47 +1052,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014/09/18/version-control/">Git, GitHub, & Version Control: Programmers&#8217; Godsend</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-09-18T13:45:42-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>1:45 pm</span></time>
-        
-           | <a href="/2014/09/18/version-control/#disqus_thread"
-             data-disqus-identifier="http://blog.liorrmorrison.com/2014/09/18/version-control/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Version control in computer programming has many benefits. For one, it basically allows the programmer to &ldquo;go back in time&rdquo; in that various versions of the project are saved throughout a period of time. If the programmer works on the project, but accidentally adds a bug in committing those changes, they can go back to the version of that code <em>before</em> they made that mistake, rather than trying to figure out how it was before. This saves a lot of time, panic, and effort! Version control is also essential in collaborative projects, where there is more than one programmer working on a code base. It allows the programmers to each have their own copy of the code base, and make changes to that personal copy (and test those changes to make sure they work/don&rsquo;t add a bug) before adding it to the master copy. Git is software that makes version control easy. It runs in the background of any directory you decide to initialize with git. It</p>
-
-<ul>
-<li><p>notices if you have made any changes to that directory, whether it be adding files or editing files,</p></li>
-<li><p>knows exactly what those changes are, and can show you them, and</p></li>
-<li><p>allows you to save (&ldquo;commit&rdquo;) those changes along with a small message where you describe what changes you have made.</p></li>
-</ul>
-
-
-<p>Git then keeps a log of your commits (changes), and you can go back and see the code as it was before and after the various changes you made. GitHub is another useful tool for programmers, especially for teams of developers. Storing your code on GitHub allows you to collaborate with people remotely, so you can theoretically work on a project with a remote team all around the world, so long as they have Internet access. While git lives locally on your computer, and is therefore useful for working on your local disk, GitHub lives on the cloud, and works in tandem with git to push your code on to GitHub, enabling other team members to see your code, and enabling <em>you</em> to make changes to the master copy of the project. GitHub also provides peace of mind, knowing that your code is stored on a remote and very reliable server; it basically acts as a backup of your code.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -1024,6 +1067,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/">Ruby &amp; JavaScript: The Big Players of Web Development</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/10/25/stereotype-threat-a-vicious-cycle/">Stereotype Threat: A Vicious Cycle</a>
       </li>
     
@@ -1037,10 +1084,6 @@
     
       <li class="post">
         <a href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/">Meta-Learning FTW: Pairing &amp; Feedback</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/10/08/tech-issues-gentrification-and-the-digital-divide/">Tech Issues: Gentrification &amp; the Digital Divide</a>
       </li>
     
   </ul>

@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby &amp; JavaScript: The Big Players of Web Development - Liorr Yehuda Morrison</title>
+  <meta name="author" content="Liorr Yehuda Morrison">
+
+  
+  <meta name="description" content="Delving into the completely different world of JavaScript after having spent over a month getting cozy with Ruby was a bit of a rude awakening. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Liorr Yehuda Morrison" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Liorr Yehuda Morrison</a></h1>
+  
+    <h2>Navigating the World of Software Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.liorrmorrison.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby &amp; JavaScript: The Big Players of Web Development</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-31T15:52:57-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>3:52 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Delving into the completely different world of JavaScript after having spent over a month getting cozy with Ruby was a bit of a rude awakening. Suddenly my comfort and fluency was out the window &ndash; I felt like I was starting from scratch! What had become second nature in Ruby I now had to research in JavaScript - nooooo! But after spending some hours reading and studying, I feel like I&rsquo;m finally getting my bearings.</p>
+
+<p>JavaScript and Ruby are both powerful object-oriented languages, but they are designed for two completely different purposes. Ruby is a server-side back-end language whose processes don&rsquo;t really have a visual component. Ruby processes and manipulates data and makes calls to the server&rsquo;s database. JavaScript, on the other hand, although it can be used as a server-side language (Google node.js!), is primarily a client-side language that runs in the web browser and is responsible for making websites dynamic and interactive. That&rsquo;s why, despite being a very capable scripting language, JavaScript is typically considered to be a front-end language.</p>
+
+<p>There are many other differences between these two languages as well, the most obvious of which is syntax. Ruby&rsquo;s defining characteristic is the use of the keyword end. You must use end to signal the end of a method definition, class definition, loop, or block. JavaScript, on the other hand, is distinguished by the presence of curly braces and semicolons. Let&rsquo;s compare the following two methods (one written in Ruby, the other in JavaScript) that do the same thing; see if you can figure out which is which!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">total</span> <span class="o">+=</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">total</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span> <span class="c1">// =&gt; 15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">total</span> <span class="o">+=</span> <span class="n">number</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">total</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sum</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 15</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well? It&rsquo;s pretty obvious, isn&rsquo;t it? You can definitely see the similarities and figure out that each function is doing the same thing, but there are several key differences. For one, the JavaScript loop is completely different-looking from Ruby&rsquo;s <code>#each</code> method. JavaScript also requires (in most cases, though not all) a semicolon at the end of each executable statement, whereas Ruby does not. Ruby determines the extent of methods, loops, and blocks with the end keyword, while JavaScript relies on the meat of a method or loop to be wrapped in curly braces. JavaScript also requires you to use the keyword <code>var</code> at the beginning of each variable assignment.</p>
+
+<p>If I had to pick a favorite, I&rsquo;d choose Ruby hands-down&hellip; I&rsquo;m biased, of course, by my lack of experience as a developer and my familiarity with Ruby. Both languages are incredibly powerful and integral the world of software development, and I&rsquo;m sure my appreciation for JavaScript will increase as I continue to work with it and see its true potential.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Liorr Yehuda Morrison</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-31T15:52:57-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>3:52 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/dev/'>dev</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/" data-via="" data-counturl="http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2014/10/25/stereotype-threat-a-vicious-cycle/" title="Previous Post: Stereotype Threat: A Vicious Cycle">&laquo; Stereotype Threat: A Vicious Cycle</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/">Ruby &amp; JavaScript: The Big Players of Web Development</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/25/stereotype-threat-a-vicious-cycle/">Stereotype Threat: A Vicious Cycle</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/24/variable-scope-from-local-to-global/">Variable Scope: From Local to Global</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/">Ruby Classes: Encapsulating State and Behavior</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/">Meta-Learning FTW: Pairing &amp; Feedback</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Liorr Yehuda Morrison -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'liorrm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/';
+        var disqus_url = 'http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-major-players-of-web-development/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
