@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Event Listeners: The Critical Link"
+date: 2014-11-08 15:38:35 -0800
+comments: true
+categories: [dev]
+---
+JavaScript event listeners are kind of like the nervous system of a website. Without them, the website does not have the ability to sense, or "listen to", actions the user can take (such as clicking, pressing keys, loading the page, etc). I first learned event listeners through programming my first JS project, the [airporter game](http://blog.liorrmorrison.com/dbc/airport). Event listeners allow you to change or manipulate HTML/CSS elements when a certain element "hears" an event. To illustrate this idea, let's take an example from my airport game. It would help you understand this explanation if you played a quick round of the game first! In the game, I have two event listeners, one that targets the entire window and one that targets an HTML element:
+
+```javascript
+airbus.addEventListener('click', clearWay)
+window.addEventListener('keydown', move)
+```
+Let's analyze the syntax of these event listeners. The functionality of the `addEventListener` function is obvious enough, but what's going on with the rest of it? You call the `addEventListener` function on an HTML/DOM element. In the first example, it is being called on `airbus`, which is an a div in the HTML with the id "airbus". If you have played the game, the airbus is the "little scoundrel" airplane that gets in the way of your progress! Now, what's going on in the parenthesis? The `addEventListener` function takes two parameters: an event, and a function to run when that event occurs (there is an optional boolean third parameter, but it is pretty technical so I won't discuss it here). In the first example, the event is 'click', and the function is clearWay. So when the airbus element is clicked, the clearWay function will be run. I defined the clearWay function such that it changes the element's top style to 200px from where it originally was lower down on the runway. How does this manifest? Well, if you click the airbus on the page, it moves up away from the runway! As for the second example, why do we target the window if we really mean to move the other airplane? Well, the 'keydown' event can't really target a particular HTML DOM element. The only part of a web page that can "hear" it is the window itself! That allows you to use the arrow keys to control the airplane without having to click, scroll over, or do anything to the airplane itself. As you can see, the second event listener executes the "move" function upon the 'keydown' event (which, in the move function, I limit to just the arrow keys). The move function changes the boeing element's CSS positioning. Event listeners are the link between JavaScript and HTML/CSS elements. Without them, no script would be able communicate with and manipulate the web page!
