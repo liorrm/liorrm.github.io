@@ -9,7 +9,7 @@
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="After having immersed myself in the world of HTML and CSS through creating a fully functional website in a mere 36 hours, I came out of it with a &hellip;">
+  <meta name="description" content="Now almost a third of the way through Phase 0 of Dev Bootcamp, we&rsquo;ve finally moved on from git, HTML, and CSS to the true heart and soul of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,86 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/11/10/arrays-and-hashes-one-is-silver-and-the-other-gold/">Arrays &amp; Hashes: One Is Silver and the Other Gold</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-10T11:22:53-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:22 am</span></time>
+        
+           | <a href="/2014/11/10/arrays-and-hashes-one-is-silver-and-the-other-gold/#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com/2014/11/10/arrays-and-hashes-one-is-silver-and-the-other-gold/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Now almost a third of the way through Phase 0 of Dev Bootcamp, we&rsquo;ve finally moved on from git, HTML, and CSS to the true heart and soul of programming: scripting &ndash; the part that actually makes your web site do stuff rather than just display it. For the first blog topic, we&rsquo;ll discuss arrays and hashes, which are two ways of storing data. Arrays and hashes are each their own classes in the Ruby programming language, meaning they come with their own set of rules that govern how they can be used, and methods than can manipulate the data within them. First let&rsquo;s talk about arrays, since they&rsquo;re simpler, and understanding hashes is easier once you understand arrays.</p>
+
+<p>An array is a series of elements grouped and stored together, separated by commas. They are encapsulated by a pair of brackets on both ends of the series of elements. The elements can be of various types, including strings, numbers, symbols, etc, such as the example below illustrates:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">example_array</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="ss">:symbol</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;this&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;crazy&quot;</span><span class="o">]]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yes, you actually can store an array inside of an array (an array within an array is called a nested array). In addition to the element itself, the array knows where the element &ldquo;lives&rdquo; (its position) inside of it, something called the <em>index</em>. The index begins at zero, so the first element of the array can be called like so:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">example_array</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="c1">#=&gt; &quot;string&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>How would you call the second element of the nested array?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">example_array</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="c1">#=&gt; &quot;is&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Good. Now that we have an understanding of arrays, we can delve into the world of hashes. Hashes are similar to arrays in that they are also a means of storing a series of elements, but they don&rsquo;t just stop there. Hashes store relationships between its elements in what are called key-value pairs. Whereas an array could store a list of cities:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">city_array</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:New_York</span><span class="p">,</span> <span class="ss">:Los_Angeles</span><span class="p">,</span> <span class="ss">:Chicago</span><span class="p">,</span> <span class="ss">:Houston</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the hash could store them AND tell you their populations (or whatever corresponding piece of data), where the city names are the &ldquo;keys&rdquo; and the populations are the &ldquo;values&rdquo;:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">city_hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">New_York</span><span class="p">:</span>    <span class="mi">8300000</span><span class="p">,</span>
+</span><span class='line'>              <span class="ss">Los_Angeles</span><span class="p">:</span> <span class="mi">3900000</span><span class="p">,</span>
+</span><span class='line'>              <span class="ss">Chicago</span><span class="p">:</span>    <span class="mi">2800000</span><span class="p">,</span>
+</span><span class='line'>              <span class="ss">Houston</span><span class="p">:</span>    <span class="mi">2200000</span>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p> You can access a key&rsquo;s corresponding value like so:</p>
+
+<pre><code class="`ruby"> city_hash[New_York] #=&gt; 8300000
+</code></pre>
+
+<p> As you can see, hashes allow for relationships between values, compared to arrays which just list them in a series. Both are incredibly useful and are fundamental to just about any large-scale project.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -470,6 +550,10 @@ The entire testing process is comprised of different types of testing, including
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/11/10/arrays-and-hashes-one-is-silver-and-the-other-gold/">Arrays &amp; Hashes: One Is Silver and the Other Gold</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/09/28/css-subleties-margin/">CSS Subleties: Margin, Padding, and Border</a>
       </li>
     
@@ -483,10 +567,6 @@ The entire testing process is comprised of different types of testing, including
     
       <li class="post">
         <a href="/2014/09/07/request-response/">Request-Response</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/09/07/testing-continued/">Testing Continued</a>
       </li>
     
   </ul>
