@@ -49,7 +49,7 @@ end
 numbers #=> [1, 2, 3, 4, 5]
 ```
 
-#each does nothing, while #map successfully executes the block and modifies each element of the array. But does it really change the array? Not exactly. It shows you a modified version of that array with the code block executed, but you can think of that as a temporary glimpse into what it would do it if actually did modify it. As you can see in the above example, if you call the array after calling the code block on it, it remains unchanged. For a true, permanent change, we need the "!" at the end, or we could save the modified array to a new variable. The exclamation point at the end of a method indicates that the method is what is called a "dangerous" or "destructive" method (or colloquially, a "bang" method) because it permanently changes the composition of the array, as the example below demonstrates:
+The #each method does nothing, while #map successfully executes the block and modifies each element of the array. But does it really change the array? Not exactly. It shows you a modified version of that array with the code block executed, but you can think of that as a temporary glimpse into what it would do it if actually did modify it. As you can see in the above example, if you call the array after calling the code block on it, it remains unchanged. For a true, permanent change, we need the "!" at the end, or we could save the modified array to a new variable. The exclamation point at the end of a method indicates that the method is what is called a "dangerous" or "destructive" method (or colloquially, a "bang" method) because it permanently changes the composition of the array, as the example below demonstrates:
 
 ```ruby
 numbers = [1, 2, 3, 4, 5]
@@ -63,7 +63,7 @@ end
 numbers #=> [2, 4, 6, 8, 10]
 ```
 
-#map and #map! are very useful methods to make real changes to various data structures. For example, if you had an array of data containing both strings and numbers and wanted to convert all the numbers to strings, you could use #map or #map!, depending on whether you want to make a modified "copy" of the array for immediate use, or change it permanently.
+The #map and #map! methods are very useful in making real changes to various data structures. For example, if you had an array of data containing both strings and numbers and wanted to convert all the numbers to strings, you could use #map or #map!, depending on whether you want to make a modified "copy" of the array for immediate use, or change it permanently.
 
 Here is another example that uses the map method to convert array elements into strings:
 
@@ -77,4 +77,4 @@ end
 #=> ["I", "want", "3", "pets", "but", "only", "have", "2"]
 ```
 
-And there you have a little introduction to Ruby's Enumerable module! Be sure to check out the [Ruby Documentation ](http://at ruby-doc.org) for more information and to see other Enumerable methods.
+And there you have a little introduction to Ruby's Enumerable module! Be sure to check out the [Ruby Documentation ](http://ruby-doc.org) for more information and to see other Enumerable methods.
