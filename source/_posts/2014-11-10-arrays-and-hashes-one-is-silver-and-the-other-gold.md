@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Arrays &amp; Hashes: One is Silver and the Other Gold"
-date: 2014-11-10 11:22:53 -0800
+date: 2014-09-30 13:22:53 -0800
 comments: true
 categories: [dev]
 ---
