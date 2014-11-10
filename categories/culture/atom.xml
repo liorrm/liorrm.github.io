@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Culture | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/culture/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T14:27:51-08:00</updated>
+  <updated>2014-11-10T14:40:47-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -21,42 +21,6 @@
     <content type="html"><![CDATA[<p>Broadly, stereotype threat is a situation in which a person feels themselves to be living out negative stereotypes associated with their social group. It is a vicious cycle, because as the person continues to worry about their stereotype-affirming habits or behavior, they sabotage their chances of defeating and overcoming the stereotype threat, since the concept is rooted in a person&rsquo;s perception, not in reality. As a white male who grew up middle class and attended private school all my life, I am what many people would consider the privileged of the privileged, so how on earth could I relate to stereotype threat? Honestly, I haven&rsquo;t experienced it until recently, when I joined a social group I never thought I&rsquo;d be a part of: college dropouts. Yes, that&rsquo;s right. Despite my full devotion to academic success during high school, I find myself now, a couple years after graduation, not enrolled in college. Since leaving college a year ago, I&rsquo;ve been able to keep a pretty high morale, as I have plans, ambitions, and drive; but every once in a while, it dawns on me that&hellip; I am a college dropout. I think about my friends who are still in college, studying abroad, pursuing their degrees, and here I am, not doing that. If I let myself think about this too much, I become sad, depressed, discouraged, unmotivated. It spirals out of control. Even though I am doing something far more rewarding - forging my own path, delving into computer programming - I get sad and my morale plummets. Luckily I don&rsquo;t let these periods last too long, so I&rsquo;m not actually concerned I will start to waste my life away, but it&rsquo;s still a problem I&rsquo;m dealing with.</p>
 
 <p>As for how to combat this phenomenon, there is no easy answer. I as an individual, while not completely powerless, can only do so much to lift peoples&#8217; morales. It really is as simple as realizing that the perceived threat is not a real one - it is entirely within your power to challenge the stereotype, just say &ldquo;no&rdquo;, and life live with purpose and drive. Having said that, I realize that &rsquo;s easier said than done. It really comes down to how much confidence you have in yourself. To mitigate the effects of stereotype threat, I will try to lift people up - be complimentary, encouraging, patient. At the very least, this will help people get confidence to continue down their journeys and be less bogged down by stereotypes.</p>
-
-<p>There are many other differences between these two languages as well, the most obvious of which is syntax. Ruby&rsquo;s defining characteristic is the use of the keyword end. You must use end to signal the end of a method definition, class definition, loop, or block. JavaScript, on the other hand, is distinguished by the presence of curly braces and semicolons. Let&rsquo;s compare the following two methods (one written in Ruby, the other in JavaScript) that do the same thing; see if you can figure out which is which!</p>
-
-<ol>
-<li><p>&#8220;`javascript
-var sum = function(array) {
-var total = 0;
-for (var i = 0; i &lt; array.length; i++) {
-  total += array[i];
-}
-return total
-}</p></li>
-</ol>
-
-
-<p>console.log(sum([1, 2, 3, 4, 5])) // => 15
-&#8220;`</p>
-
-<ol>
-<li><p>&#8220;`ruby
-def sum(array)
-total = 0
-array.each do |number|
-  total += number
-end
-return total
-end</p></li>
-</ol>
-
-
-<p>sum([1, 2, 3, 4, 5]) #=> 15
-&#8220;`</p>
-
-<p>Well? It&rsquo;s pretty obvious, isn&rsquo;t it? You can definitely see the similarities and figure out that each function is doing the same thing, but there are several key differences. For one, the JavaScript loop is completely different-looking from Ruby&rsquo;s each method. JavaScript also requires (in most cases, though not all) a semicolon at the end of each executable statement, whereas Ruby does not. Ruby determines the extent of methods, loops, and blocks with the end keyword, while JavaScript relies on the meat of a method or loop to be wrapped in curly braces. JavaScript also requires you to use the keyword var at the beginning of each variable assignment.</p>
-
-<p>If I had to pick a favorite, I&rsquo;d choose Ruby hands-down&hellip; I&rsquo;m biased, of course, by my lack of experience as a developer and my familiarity with Ruby. Both languages are incredibly powerful and integral the world of software development, and I&rsquo;m sure my appreciation for JavaScript will increase as I continue to work with it and see its true potential.</p>
 ]]></content>
   </entry>
   
