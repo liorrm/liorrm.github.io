@@ -1,0 +1,72 @@
+/*Add your CSS below!
+div { background-color: #cc0000;
+      height: 100px;
+      width: 100px;
+    } */
+a {
+  color: rgb(120,50,110);
+}
+
+html {
+  background-color: white;
+}
+
+h3 {
+  text-align: center;
+  font-size: 18px;
+  color: #000080;
+  margin-top: 20px;
+  margin-bottom:11px;
+  height: 95px;
+  line-height: 17px;
+}
+
+.BigLetter {
+  font-size: 32px;
+}
+
+.address {
+  font-size: 13px;
+  padding-top: 0px;
+  line-height: 10%;
+}
+
+.official {
+  font-size:16px;
+}
+
+#updated {
+font-size: 10px;
+}
+
+#inc {
+  font-size: 13px;
+}
+
+table {
+  margin: 0 auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: -30px;
+}
+
+li {
+  padding-bottom: 35px;
+  content: "•";
+  color: #000080;
+}
+
+#second_list {
+  padding-top: -5em;
+}
+
+#geico {
+  text-align: center;
+  font-size: 13px;
+  color: rgb(0,50,190);
+}
+
+#comments {
+  color: #000080;
+  font-size: 13px;
+}

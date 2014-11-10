@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://blog.liorrmorrison.com/2014/09/18/meta-dbc-a-new-look-at-pedagogy/</loc>
+    <lastmod>2014-09-18T13:45:42-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.liorrmorrison.com/2014/09/12/who-i-am/</loc>
     <lastmod>2014-09-12T22:06:40-07:00</lastmod>
     <priority>0.8</priority>
@@ -35,17 +41,29 @@
   
   <url>
     <loc>http://blog.liorrmorrison.com/archives/</loc>
-    <lastmod>2014-09-14T11:13:39-07:00</lastmod>
+    <lastmod>2014-11-10T10:53:52-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://blog.liorrmorrison.com/</loc>
-    <lastmod>2014-09-14T11:13:39-07:00</lastmod>
+    <lastmod>2014-11-10T10:53:52-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
+  
+  <url>
+    <loc>http://blog.liorrmorrison.com/images/Liorr Yehuda Morrison.html</loc>
+    <lastmod>2014-09-26T10:05:37Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.liorrmorrison.com/images/my-berkshire-site2.html#.html</loc>
+    <lastmod>2014-09-24T13:23:59Z</lastmod>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>
