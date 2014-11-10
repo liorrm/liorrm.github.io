@@ -13,7 +13,7 @@ JavaScript and Ruby are both powerful object-oriented languages, but they are de
 There are many other differences between these two languages as well, the most obvious of which is syntax. Ruby's defining characteristic is the use of the keyword end. You must use end to signal the end of a method definition, class definition, loop, or block. JavaScript, on the other hand, is distinguished by the presence of curly braces and semicolons. Let's compare the following two methods (one written in Ruby, the other in JavaScript) that do the same thing; see if you can figure out which is which!
 
 1.
-```
+``` javascript
 var sum = function(array) {
   var total = 0;
   for (var i = 0; i < array.length; i++) {
