@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T14:52:15-08:00</updated>
+  <updated>2014-11-10T14:54:35-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby &amp; JavaScript: The Big Players of Web Development]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-big-players-of-web-development/"/>
+    <updated>2014-10-31T15:52:57-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/10/31/ruby-and-javascript-the-big-players-of-web-development</id>
+    <content type="html"><![CDATA[<p>Delving into the completely different world of JavaScript after having spent over a month getting cozy with Ruby was a bit of a rude awakening. Suddenly my comfort and fluency was out the window &ndash; I felt like I was starting from scratch! What had become second nature in Ruby I now had to research in JavaScript - nooooo! But after spending some hours reading and studying, I feel like I&rsquo;m finally getting my bearings.</p>
+
+<p>JavaScript and Ruby are both powerful object-oriented languages, but they are designed for two completely different purposes. Ruby is a server-side back-end language whose processes don&rsquo;t really have a visual component. Ruby processes and manipulates data and makes calls to the server&rsquo;s database. JavaScript, on the other hand, although it can be used as a server-side language (Google node.js!), is primarily a client-side language that runs in the web browser and is responsible for making websites dynamic and interactive. That&rsquo;s why, despite being a very capable scripting language, JavaScript is typically considered to be a front-end language.</p>
+
+<p>There are many other differences between these two languages as well, the most obvious of which is syntax. Ruby&rsquo;s defining characteristic is the use of the keyword end. You must use end to signal the end of a method definition, class definition, loop, or block. JavaScript, on the other hand, is distinguished by the presence of curly braces and semicolons. Let&rsquo;s compare the following two methods (one written in Ruby, the other in JavaScript) that do the same thing; see if you can figure out which is which!</p>
+
+<ol>
+<li><p>&#8220;`javascript
+var sum = function(array) {
+var total = 0;
+for (var i = 0; i &lt; array.length; i++) {
+  total += array[i];
+}
+return total
+}</p></li>
+</ol>
+
+
+<p>console.log(sum([1, 2, 3, 4, 5])) // => 15
+&#8220;`</p>
+
+<ol>
+<li><p>&#8220;`ruby
+def sum(array)
+total = 0
+array.each do |number|
+  total += number
+end
+return total
+end</p></li>
+</ol>
+
+
+<p>sum([1, 2, 3, 4, 5]) #=> 15
+&#8220;`</p>
+
+<p>Well? It&rsquo;s pretty obvious, isn&rsquo;t it? You can definitely see the similarities and figure out that each function is doing the same thing, but there are several key differences. For one, the JavaScript loop is completely different-looking from Ruby&rsquo;s <code>#each</code> method. JavaScript also requires (in most cases, though not all) a semicolon at the end of each executable statement, whereas Ruby does not. Ruby determines the extent of methods, loops, and blocks with the end keyword, while JavaScript relies on the meat of a method or loop to be wrapped in curly braces. JavaScript also requires you to use the keyword <code>var</code> at the beginning of each variable assignment.</p>
+
+<p>If I had to pick a favorite, I&rsquo;d choose Ruby hands-down&hellip; I&rsquo;m biased, of course, by my lack of experience as a developer and my familiarity with Ruby. Both languages are incredibly powerful and integral the world of software development, and I&rsquo;m sure my appreciation for JavaScript will increase as I continue to work with it and see its true potential.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Variable Scope: From Local to Global]]></title>
@@ -360,35 +407,6 @@ end
 </code></pre>
 
 <p> As you can see, hashes allow for relationships between values, compared to arrays which just list them in a series. Both are incredibly useful and are fundamental to just about any large-scale project.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[CSS Subleties: Margin, Padding, and Border]]></title>
-    <link href="http://blog.liorrmorrison.com/2014/09/28/css-subleties-margin/"/>
-    <updated>2014-09-28T12:10:21-07:00</updated>
-    <id>http://blog.liorrmorrison.com/2014/09/28/css-subleties-margin</id>
-    <content type="html"><![CDATA[<p>After having immersed myself in the world of HTML and CSS through creating a fully functional website in a mere 36 hours, I came out of it with a great deal of knowledge (although admittedly an equally great deal of questions) about front-end web development and design. Today I will do my best to explain one such piece of knowledge of which I feel I have a pretty clear understanding: the difference between margins, padding, and borders. To understand these topics at all, I need to first explain the fundamental structure of almost all websites. When you load a website, you immediately notice that its content is organized in a certain way. You may have a header bar, one or several content areas, a navigation bar, a footer, etc. There is always a lot of thought (or there at least should be!) that goes into this design. When writing the code for the website, what allows the programmer to tell which material to go where? Well, odds are, the tool s/he used was the div. A div, which derives from the word &ldquo;divide&rdquo; is a part of the web page that you section off. Making divs is really easy in the HTML file (the content and framework part of the site), but the challenging part is bringing them to &ldquo;life&rdquo; using CSS (cascading style sheets). When you create a div in the HTML, it exists, but it has no idea where to go on the web page, so you give it instructions by using CSS properties like so:</p>
-
-<pre><code class="css">#div {
-  height: 50%;
-  width: 40%;
-  float: right;
-  position: absolute;
-  background-color: blue;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-}
-</code></pre>
-
-<p>Now, what&rsquo;s the difference between padding, margins, and borders? First, let me explain padding and margins, as they are the most closely-related and confusable of the three. The margin of a div determines how much space the div has relative to other divs and the confines of the web page. If you set a div with all four margins set to 0, it will exist flush against other divs or the edges of the web page. There will be no breathing room. So the margin determines the space outside of the div itself relative to other elements of the web page.</p>
-
-<p>The padding, on the other hand, is more inward-looking. It determines how close the div&rsquo;s content can get to the div&rsquo;s end. If you set all four sides to padding 0, the content will extend right up flush against the outer walls of the div. If you give the content more padding, it will stay away from the outer walls. You can compare the margin vs. padding issue to government, as margin is like foreign policy (how divs interact with the outside world), and padding is like domestic policy (how divs treat what&rsquo;s inside of them).</p>
-
-<p>Finally, the border is simply that: the outermost part of the div. The border doesn&rsquo;t really determine anything about the div&rsquo;s relationship with other divs (margin) or its own inner content (padding). Rather, it is an almost purely stylistic feature. You can style the border in many ways, from a simple black solid line, to a dotted line, to even 3-D designs. Borders adds some character to the website and help compartmentalize the content. The one trick with the border is that if you make very large borders, they actually protrude outside of the div&rsquo;s territory (imagine an extremely thick border fence around a country that cuts into its neighboring country&rsquo;s territory). The programmer has to watch out for this, and sometimes has to compensate for large borders by changing around margins so that the border doesn&rsquo;t interfere with other content. Other than this case, borders don&rsquo;t really influence relationships between divs, and certainly not relationships between divs and their content.</p>
-
-<p>So there you have it! I hope I helped clarify some confusion regarding these topics!</p>
 ]]></content>
   </entry>
   
