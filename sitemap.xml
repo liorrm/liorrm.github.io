@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/</loc>
+    <lastmod>2014-10-18T13:55:20-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.liorrmorrison.com/2014/10/17/meta-learning-ftw-pairing-and-feedback/</loc>
     <lastmod>2014-10-17T13:51:29-07:00</lastmod>
     <priority>0.8</priority>
@@ -77,14 +83,14 @@
   
   <url>
     <loc>http://blog.liorrmorrison.com/archives/</loc>
-    <lastmod>2014-11-10T12:54:13-08:00</lastmod>
+    <lastmod>2014-11-10T13:02:48-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://blog.liorrmorrison.com/</loc>
-    <lastmod>2014-11-10T12:54:13-08:00</lastmod>
+    <lastmod>2014-11-10T13:02:48-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

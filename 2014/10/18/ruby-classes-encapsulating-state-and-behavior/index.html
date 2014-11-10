@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby Classes: Encapsulating State and Behavior - Liorr Yehuda Morrison</title>
+  <meta name="author" content="Liorr Yehuda Morrison">
+
+  
+  <meta name="description" content="In Ruby, a class is an encapsulation of state and behavior. As we know, Ruby is an object-oriented programming language, so (almost) everything in &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Liorr Yehuda Morrison" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Liorr Yehuda Morrison</a></h1>
+  
+    <h2>Navigating the World of Software Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.liorrmorrison.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby Classes: Encapsulating State and Behavior</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-18T13:55:20-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>1:55 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In Ruby, a class is an encapsulation of state and behavior. As we know, Ruby is an object-oriented programming language, so (almost) everything in Ruby is an object. Furthermore, all objects belong to a class, which you can loosely think of as a &ldquo;species&rdquo; of objects. Each class has its own set of characteristics. For example, according to the Ruby docs, the Array class is defined as &ldquo;ordered, integer-indexed collections of any object.&rdquo; The class comes with methods that can be called upon an instance, or example, of that class. Ruby allows users to create classes and to modify existing ones. To better demonstrate the concept of classes, I&rsquo;ll create a class called Person:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span>
+</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:sex</span><span class="p">,</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">:height</span><span class="p">,</span> <span class="ss">:town</span><span class="p">,</span> <span class="ss">:religion</span><span class="p">,</span> <span class="ss">:occupation</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">town</span><span class="p">,</span> <span class="n">religion</span><span class="p">,</span> <span class="n">occupation</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>    <span class="vi">@sex</span> <span class="o">=</span> <span class="n">sex</span>
+</span><span class='line'>    <span class="vi">@age</span> <span class="o">=</span> <span class="n">age</span>
+</span><span class='line'>    <span class="vi">@height</span> <span class="o">=</span> <span class="n">height</span>
+</span><span class='line'>    <span class="vi">@town</span> <span class="o">=</span> <span class="n">town</span>
+</span><span class='line'>    <span class="vi">@religion</span> <span class="o">=</span> <span class="n">religion</span>
+</span><span class='line'>    <span class="vi">@occupation</span> <span class="o">=</span> <span class="n">occupation</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">sex_change</span>
+</span><span class='line'>    <span class="k">if</span> <span class="vi">@sex</span> <span class="o">==</span> <span class="s2">&quot;male&quot;</span>
+</span><span class='line'>      <span class="vi">@sex</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="vi">@sex</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span>
+</span><span class='line'>      <span class="vi">@sex</span> <span class="o">=</span> <span class="s2">&quot;male&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">get_old</span>
+</span><span class='line'>    <span class="vi">@age</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="n">new_height</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@height</span> <span class="o">=</span> <span class="n">new_height</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">new_town</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@town</span> <span class="o">=</span> <span class="n">new_town</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">new_religion</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@religion</span> <span class="o">=</span> <span class="n">new_religion</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change_career</span><span class="p">(</span><span class="n">new_job</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@occupation</span> <span class="o">=</span> <span class="n">new_job</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To begin, you need to initialize a new instance of that class. Basically, you need to create an individual person from the theoretical class Person. As you can see in the initialize function, I have created a few characteristics each person should have: sex, age, height, town, religion, and occupation. Of course there are many others I could include, but these were the ones that immediately came to mind. When you initialize a new instance of person, you must pass in the above seven arguments; so for example, you would type in:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Liorr</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Liorr&quot;</span><span class="p">,</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;6&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">,</span> <span class="s2">&quot;Agnostic&quot;</span><span class="p">,</span> <span class="s2">&quot;Programmer&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that we&rsquo;ve initialized it, Liorr is an instance of the class Person. In the Person class, I have created several attr_readers (attribute readers), which allow the user to access information about Liorr. To see this information, simply type Liorr.sex, Liorr.age, Liorr.height, etc. into the command line, and the values with be returned. I specifically made all these attr_readers rather than attr_accessors because I want to limit the user to changing this information by using only the instance methods I created. As you can see, I had a some fun creating the method names. You can call <code>Liorr.sex_change</code> to change my sex to female, <code>Liorr.get_old</code> to add one year to my age, <code>Liorr.grow(new_height)</code> to change my height to a new input height, <code>Liorr.move(new_town)</code> to change my town to a new input town, <code>Liorr.convert(new_religion)</code> to change my religion to a new input religion, and <code>Liorr.change_career(new_job)</code> to change my occupation to a new input occupation.</p>
+
+<p>Classes are defined by their state and behavior. All of these characteristics &ndash; age, sex, height, religion, etc. &ndash; give the class Person its state, stored in instance variables, while the instance methods &ndash; #grow, #move, #convert, etc. &ndash; give its behavior. I used the Person class as an example because it is easy to demonstrate state and behavior with something so familiar and tangible - people do have all these states and behaviors in the real world! Now all you have to do is think of each class as a different species of object, each endowed with a set of character traits. Arrays and hashes, given the overlap in their states and behaviors, are two closely related classes. To draw another comparison to the real world, you could consider arrays and hashes as you would consider humans and chimpanzees &ndash; very closely related, but ultimately a different species.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Liorr Yehuda Morrison</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-18T13:55:20-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>1:55 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/dev/'>dev</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/" data-via="" data-counturl="http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/" title="Previous Post: Meta-Learning FTW: Pairing &amp; Feedback">&laquo; Meta-Learning FTW: Pairing &amp; Feedback</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/">Ruby Classes: Encapsulating State and Behavior</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/">Meta-Learning FTW: Pairing &amp; Feedback</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/08/tech-issues-gentrification-and-the-digital-divide/">Tech Issues: Gentrification &amp; the Digital Divide</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/08/enumerables-some-mixins-for-your-picks-ins/">Enumerables: Some Mixins for Your Picks-ins</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/02/thinking-styles-change-the-way-you-think/">Thinking Styles: Change the Way You Think</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Liorr Yehuda Morrison -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'liorrm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/';
+        var disqus_url = 'http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

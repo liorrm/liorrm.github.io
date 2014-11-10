@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T12:54:13-08:00</updated>
+  <updated>2014-11-10T13:02:48-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Classes: Encapsulating State and Behavior]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/"/>
+    <updated>2014-10-18T13:55:20-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior</id>
+    <content type="html"><![CDATA[<p>In Ruby, a class is an encapsulation of state and behavior. As we know, Ruby is an object-oriented programming language, so (almost) everything in Ruby is an object. Furthermore, all objects belong to a class, which you can loosely think of as a &ldquo;species&rdquo; of objects. Each class has its own set of characteristics. For example, according to the Ruby docs, the Array class is defined as &ldquo;ordered, integer-indexed collections of any object.&rdquo; The class comes with methods that can be called upon an instance, or example, of that class. Ruby allows users to create classes and to modify existing ones. To better demonstrate the concept of classes, I&rsquo;ll create a class called Person:</p>
+
+<pre><code class="ruby">class Person
+  attr_reader :sex, :age, :height, :town, :religion, :occupation
+
+  def initialize(name, sex, age, height, town, religion, occupation)
+    @name = name
+    @sex = sex
+    @age = age
+    @height = height
+    @town = town
+    @religion = religion
+    @occupation = occupation
+  end
+
+  def sex_change
+    if @sex == "male"
+      @sex = "female"
+    elsif @sex == "female"
+      @sex = "male"
+    end
+  end
+
+  def get_old
+    @age += 1
+  end
+
+  def grow(new_height)
+    @height = new_height
+  end
+
+  def move(new_town)
+    @town = new_town
+  end
+
+  def convert(new_religion)
+    @religion = new_religion
+  end
+
+  def change_career(new_job)
+    @occupation = new_job
+  end
+end
+</code></pre>
+
+<p>To begin, you need to initialize a new instance of that class. Basically, you need to create an individual person from the theoretical class Person. As you can see in the initialize function, I have created a few characteristics each person should have: sex, age, height, town, religion, and occupation. Of course there are many others I could include, but these were the ones that immediately came to mind. When you initialize a new instance of person, you must pass in the above seven arguments; so for example, you would type in:</p>
+
+<pre><code class="ruby">Liorr = Person.new("Liorr", "male", 20, "6'1", "San Francisco", "Agnostic", "Programmer")
+</code></pre>
+
+<p>Now that we&rsquo;ve initialized it, Liorr is an instance of the class Person. In the Person class, I have created several attr_readers (attribute readers), which allow the user to access information about Liorr. To see this information, simply type Liorr.sex, Liorr.age, Liorr.height, etc. into the command line, and the values with be returned. I specifically made all these attr_readers rather than attr_accessors because I want to limit the user to changing this information by using only the instance methods I created. As you can see, I had a some fun creating the method names. You can call <code>Liorr.sex_change</code> to change my sex to female, <code>Liorr.get_old</code> to add one year to my age, <code>Liorr.grow(new_height)</code> to change my height to a new input height, <code>Liorr.move(new_town)</code> to change my town to a new input town, <code>Liorr.convert(new_religion)</code> to change my religion to a new input religion, and <code>Liorr.change_career(new_job)</code> to change my occupation to a new input occupation.</p>
+
+<p>Classes are defined by their state and behavior. All of these characteristics &ndash; age, sex, height, religion, etc. &ndash; give the class Person its state, stored in instance variables, while the instance methods &ndash; #grow, #move, #convert, etc. &ndash; give its behavior. I used the Person class as an example because it is easy to demonstrate state and behavior with something so familiar and tangible - people do have all these states and behaviors in the real world! Now all you have to do is think of each class as a different species of object, each endowed with a set of character traits. Arrays and hashes, given the overlap in their states and behaviors, are two closely related classes. To draw another comparison to the real world, you could consider arrays and hashes as you would consider humans and chimpanzees &ndash; very closely related, but ultimately a different species.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Enumerables: Some Mixins for Your Picks-ins]]></title>
@@ -178,23 +239,6 @@ end
 
 
 <p>Git then keeps a log of your commits (changes), and you can go back and see the code as it was before and after the various changes you made. GitHub is another useful tool for programmers, especially for teams of developers. Storing your code on GitHub allows you to collaborate with people remotely, so you can theoretically work on a project with a remote team all around the world, so long as they have Internet access. While git lives locally on your computer, and is therefore useful for working on your local disk, GitHub lives on the cloud, and works in tandem with git to push your code on to GitHub, enabling other team members to see your code, and enabling <em>you</em> to make changes to the master copy of the project. GitHub also provides peace of mind, knowing that your code is stored on a remote and very reliable server; it basically acts as a backup of your code.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Who I Am]]></title>
-    <link href="http://blog.liorrmorrison.com/2014/09/12/who-i-am/"/>
-    <updated>2014-09-12T22:06:40-07:00</updated>
-    <id>http://blog.liorrmorrison.com/2014/09/12/who-i-am</id>
-    <content type="html"><![CDATA[<p>Yeah, I&rsquo;m a noob, but everyone starts somewhere.</p>
-
-<p>I am a twenty-year-old living in San Francisco, and I&rsquo;m about to start intensive software development training at Dev Bootcamp, the recently established coding school that has, in a mere two years, pioneered an all-new, avant-garde genre in the field of education. What led me here? Less than two years ago I was a geography major at a ritzy liberal arts college in Vermont, and now I&rsquo;m in San Francisco studying to become a programmer? After completing my first year of college, I took what I thought would be a semester off to save money ($60,000 tuition + meager family income meant lots of debt, fast) and do some introspection. My life from 9th grade-on had been a pre-written (and admittedly boring) script, slaving away at academic work just to get in to my dream college. Taking a step off the proverbial treadmill seemed like just the thing to clear my mind and devote some time to myself. So being the geography nerd that I was (and still am), I traveled around the US for a couple months, and then and spent some time teaching and translating in the Middle East. But before I knew it, the grand adventure had ended, and it was time to return to academia&hellip; Except when I returned, my perspective had changed. The whole I was in school, I never gave it much critical thought &mdash; ironically enough, I gave plenty of critical thought to the works of literature I studied, but not to the education itself. Coming back, facing the sky-high price tag and questionable practicality of my liberal arts education, I decided to extend my leave&hellip;(dramatic pause) <em>indefinitely</em>.</p>
-
-<p>So I worked for a while, got some financial freedom, but was soon ready for something bigger and better&hellip; and boy, let me tell you, the prospect of enrolling in community college classes just <em>didn&rsquo;t</em> have that spark I was looking for. And that&rsquo;s why I&rsquo;m here. Writing this blog. Studying programming. Challenging the status quo by putting off college and learning something completely different, in a setting I didn&rsquo;t even know existed a year ago. I had always been a fan and avid user of technology, but for whatever reason didn&rsquo;t consider going into it. I never thought I had what it took to be a programmer&hellip; Well, turns out I&rsquo;m wrong.</p>
-
-<p>Programming isn&rsquo;t about holing up and doing weird esoteric math-like things all day. It&rsquo;s about logical thinking and familiarizing yourself with languages to express that thinking. It&rsquo;s about creation. And what better field is there than one that will pay you to think? And one that allows you to integrate your passions into the work that you do?</p>
-
-<p>I&rsquo;m disillusioned with the status quo. I&rsquo;m excited about learning how to learn, about challenging myself in unprecedented ways. I intend this blog to be a means through which I synthesize new information, mostly to help me organize make connections between ideas, but also theoretically to help other noobs like myself navigate this new world.</p>
 ]]></content>
   </entry>
   

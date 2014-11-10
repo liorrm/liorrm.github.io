@@ -4,7 +4,7 @@
   <title><![CDATA[Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-10T12:54:13-08:00</updated>
+  <updated>2014-11-10T13:02:48-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Classes: Encapsulating State and Behavior]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/"/>
+    <updated>2014-10-18T13:55:20-07:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior</id>
+    <content type="html"><![CDATA[<p>In Ruby, a class is an encapsulation of state and behavior. As we know, Ruby is an object-oriented programming language, so (almost) everything in Ruby is an object. Furthermore, all objects belong to a class, which you can loosely think of as a &ldquo;species&rdquo; of objects. Each class has its own set of characteristics. For example, according to the Ruby docs, the Array class is defined as &ldquo;ordered, integer-indexed collections of any object.&rdquo; The class comes with methods that can be called upon an instance, or example, of that class. Ruby allows users to create classes and to modify existing ones. To better demonstrate the concept of classes, I&rsquo;ll create a class called Person:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span>
+</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:sex</span><span class="p">,</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">:height</span><span class="p">,</span> <span class="ss">:town</span><span class="p">,</span> <span class="ss">:religion</span><span class="p">,</span> <span class="ss">:occupation</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">town</span><span class="p">,</span> <span class="n">religion</span><span class="p">,</span> <span class="n">occupation</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>    <span class="vi">@sex</span> <span class="o">=</span> <span class="n">sex</span>
+</span><span class='line'>    <span class="vi">@age</span> <span class="o">=</span> <span class="n">age</span>
+</span><span class='line'>    <span class="vi">@height</span> <span class="o">=</span> <span class="n">height</span>
+</span><span class='line'>    <span class="vi">@town</span> <span class="o">=</span> <span class="n">town</span>
+</span><span class='line'>    <span class="vi">@religion</span> <span class="o">=</span> <span class="n">religion</span>
+</span><span class='line'>    <span class="vi">@occupation</span> <span class="o">=</span> <span class="n">occupation</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">sex_change</span>
+</span><span class='line'>    <span class="k">if</span> <span class="vi">@sex</span> <span class="o">==</span> <span class="s2">&quot;male&quot;</span>
+</span><span class='line'>      <span class="vi">@sex</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="vi">@sex</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span>
+</span><span class='line'>      <span class="vi">@sex</span> <span class="o">=</span> <span class="s2">&quot;male&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">get_old</span>
+</span><span class='line'>    <span class="vi">@age</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="n">new_height</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@height</span> <span class="o">=</span> <span class="n">new_height</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">new_town</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@town</span> <span class="o">=</span> <span class="n">new_town</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">new_religion</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@religion</span> <span class="o">=</span> <span class="n">new_religion</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change_career</span><span class="p">(</span><span class="n">new_job</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@occupation</span> <span class="o">=</span> <span class="n">new_job</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To begin, you need to initialize a new instance of that class. Basically, you need to create an individual person from the theoretical class Person. As you can see in the initialize function, I have created a few characteristics each person should have: sex, age, height, town, religion, and occupation. Of course there are many others I could include, but these were the ones that immediately came to mind. When you initialize a new instance of person, you must pass in the above seven arguments; so for example, you would type in:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Liorr</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Liorr&quot;</span><span class="p">,</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;6&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">,</span> <span class="s2">&quot;Agnostic&quot;</span><span class="p">,</span> <span class="s2">&quot;Programmer&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now that we&rsquo;ve initialized it, Liorr is an instance of the class Person. In the Person class, I have created several attr_readers (attribute readers), which allow the user to access information about Liorr. To see this information, simply type Liorr.sex, Liorr.age, Liorr.height, etc. into the command line, and the values with be returned. I specifically made all these attr_readers rather than attr_accessors because I want to limit the user to changing this information by using only the instance methods I created. As you can see, I had a some fun creating the method names. You can call <code>Liorr.sex_change</code> to change my sex to female, <code>Liorr.get_old</code> to add one year to my age, <code>Liorr.grow(new_height)</code> to change my height to a new input height, <code>Liorr.move(new_town)</code> to change my town to a new input town, <code>Liorr.convert(new_religion)</code> to change my religion to a new input religion, and <code>Liorr.change_career(new_job)</code> to change my occupation to a new input occupation.</p>
+
+<p>Classes are defined by their state and behavior. All of these characteristics &ndash; age, sex, height, religion, etc. &ndash; give the class Person its state, stored in instance variables, while the instance methods &ndash; #grow, #move, #convert, etc. &ndash; give its behavior. I used the Person class as an example because it is easy to demonstrate state and behavior with something so familiar and tangible - people do have all these states and behaviors in the real world! Now all you have to do is think of each class as a different species of object, each endowed with a set of character traits. Arrays and hashes, given the overlap in their states and behaviors, are two closely related classes. To draw another comparison to the real world, you could consider arrays and hashes as you would consider humans and chimpanzees &ndash; very closely related, but ultimately a different species.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Meta-Learning FTW: Pairing &amp; Feedback]]></title>
