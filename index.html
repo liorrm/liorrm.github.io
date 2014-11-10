@@ -9,7 +9,7 @@
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="Version control in computer programming has many benefits. For one, it basically allows the programmer to &ldquo;go back in time&rdquo; in that &hellip;">
+  <meta name="description" content="After having immersed myself in the world of HTML and CSS through creating a fully functional website in a mere 36 hours, I came out of it with a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/09/28/css-subleties-margin/">CSS Subleties: Margin, Padding, and Border</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-28T12:10:21-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:10 pm</span></time>
+        
+           | <a href="/2014/09/28/css-subleties-margin/#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com/2014/09/28/css-subleties-margin/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>After having immersed myself in the world of HTML and CSS through creating a fully functional website in a mere 36 hours, I came out of it with a great deal of knowledge (although admittedly an equally great deal of questions) about front-end web development and design. Today I will do my best to explain one such piece of knowledge of which I feel I have a pretty clear understanding: the difference between margins, padding, and borders. To understand these topics at all, I need to first explain the fundamental structure of almost all websites. When you load a website, you immediately notice that its content is organized in a certain way. You may have a header bar, one or several content areas, a navigation bar, a footer, etc. There is always a lot of thought (or there at least should be!) that goes into this design. When writing the code for the website, what allows the programmer to tell which material to go where? Well, odds are, the tool s/he used was the div. A div, which derives from the word &ldquo;divide&rdquo; is a part of the web page that you section off. Making divs is really easy in the HTML file (the content and framework part of the site), but the challenging part is bringing them to &ldquo;life&rdquo; using CSS (cascading style sheets). When you create a div in the HTML, it exists, but it has no idea where to go on the web page, so you give it instructions by using CSS properties like so:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#div</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">50%</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">40%</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">background-color</span><span class="o">:</span> <span class="nb">blue</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-style</span><span class="o">:</span> <span class="k">solid</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-color</span><span class="o">:</span> <span class="nb">black</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">border-width</span><span class="o">:</span> <span class="m">2px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, what&rsquo;s the difference between padding, margins, and borders? First, let me explain padding and margins, as they are the most closely-related and confusable of the three. The margin of a div determines how much space the div has relative to other divs and the confines of the web page. If you set a div with all four margins set to 0, it will exist flush against other divs or the edges of the web page. There will be no breathing room. So the margin determines the space outside of the div itself relative to other elements of the web page.</p>
+
+<p>The padding, on the other hand, is more inward-looking. It determines how close the div&rsquo;s content can get to the div&rsquo;s end. If you set all four sides to padding 0, the content will extend right up flush against the outer walls of the div. If you give the content more padding, it will stay away from the outer walls. You can compare the margin vs. padding issue to government, as margin is like foreign policy (how divs interact with the outside world), and padding is like domestic policy (how divs treat what&rsquo;s inside of them).</p>
+
+<p>Finally, the border is simply that: the outermost part of the div. The border doesn&rsquo;t really determine anything about the div&rsquo;s relationship with other divs (margin) or its own inner content (padding). Rather, it is an almost purely stylistic feature. You can style the border in many ways, from a simple black solid line, to a dotted line, to even 3-D designs. Borders adds some character to the website and help compartmentalize the content. The one trick with the border is that if you make very large borders, they actually protrude outside of the div&rsquo;s territory (imagine an extremely thick border fence around a country that cuts into its neighboring country&rsquo;s territory). The programmer has to watch out for this, and sometimes has to compensate for large borders by changing around margins so that the border doesn&rsquo;t interfere with other content. Other than this case, borders don&rsquo;t really influence relationships between divs, and certainly not relationships between divs and their content.</p>
+
+<p>So there you have it! I hope I helped clarify some confusion regarding these topics!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -407,6 +470,10 @@ The entire testing process is comprised of different types of testing, including
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/09/28/css-subleties-margin/">CSS Subleties: Margin, Padding, and Border</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/09/18/version-control/">Git, GitHub, & Version Control: Programmers&#8217; Godsend</a>
       </li>
     
@@ -420,10 +487,6 @@ The entire testing process is comprised of different types of testing, including
     
       <li class="post">
         <a href="/2014/09/07/testing-continued/">Testing Continued</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/09/07/testing/">Testing</a>
       </li>
     
   </ul>
