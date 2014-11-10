@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Variable Scope: From Local to Global - Liorr Yehuda Morrison</title>
+  <meta name="author" content="Liorr Yehuda Morrison">
+
+  
+  <meta name="description" content="Ruby provides programmers with a range of variable types, all defined by their scope &ndash; where they can be accessed. The variables, in order of &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/10/24/variable-scope-from-local-to-global">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Liorr Yehuda Morrison" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Liorr Yehuda Morrison</a></h1>
+  
+    <h2>Navigating the World of Software Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.liorrmorrison.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Variable Scope: From Local to Global</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-24T16:35:42-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:35 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Ruby provides programmers with a range of variable types, all defined by their scope &ndash; where they can be accessed. The variables, in order of increasing scope, are local variables, instance variables, class variables, constants, and global variables. Let&rsquo;s dive in to see the accessibility of each of the variable types.</p>
+
+<p>First, let&rsquo;s start with local variables. As their name suggests, local variables have a local scope, limited to the method or block in which they are defined. They must start with a lower-case letter or underscore. Consider the following example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">local_method</span>
+</span><span class='line'>  <span class="n">local_variable</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>  <span class="mi">5</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">local_variable</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">local_method</span> <span class="c1">#=&gt;</span>
+</span><span class='line'>              <span class="s2">&quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>              <span class="s2">&quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>              <span class="s2">&quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>              <span class="s2">&quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">local_variable</span> <span class="o">=&gt;</span> <span class="c1"># NameError: undefined local variable or method `local_variable&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this example, the variable <code>local_variable</code> is defined within the method. It can be accessed by the method itself, as we see it successfully executes the code block with the variable; but if we try to access it from outside the method, we get an error message that the variable is undefined. It&rsquo;s undefined because, as a local variable, its scope is limited to within the method itself. What if we were to define a local variable within block within a method?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">local_method</span>
+</span><span class='line'>  <span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">very_local_variable</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m a VERY local variable&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num</span><span class="si">}</span><span class="s2">. </span><span class="si">#{</span><span class="n">very_local_variable</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">very_local_variable</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">local_method</span> <span class="c1">#=&gt;</span>
+</span><span class='line'><span class="c1">#                 1. I&#39;m a VERY local variable</span>
+</span><span class='line'><span class="c1">#                 2. I&#39;m a VERY local variable</span>
+</span><span class='line'><span class="c1">#                 3. I&#39;m a VERY local variable</span>
+</span><span class='line'><span class="c1">#                 4. I&#39;m a VERY local variable</span>
+</span><span class='line'><span class="c1">#                 5. I&#39;m a VERY local variable</span>
+</span><span class='line'><span class="c1"># NameError: undefined local variable or method `very_local_variable&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What just happened? In this example, <code>very_local_variable</code> is defined within a block that is within a method. When called, the method executed the block successfully, but then when <code>very_local_variable</code> was called outside of the block in which it was defined, ruby told us it was undefined! This example shows you just how limited in scope local variables are: if defined within a block within a method, the method won&rsquo;t even have access to it! Now let&rsquo;s move on to instance variables.</p>
+
+<p>Instance variables are variables limited to one particular instance of a class. They must begin with a single &ldquo;@&rdquo; character. To illustrate the scope of instance variables, consider the following example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span>
+</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:hair_color</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">hair_color</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+</span><span class='line'>    <span class="vi">@hair_color</span> <span class="o">=</span> <span class="n">hair_color</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">tom</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Tom&quot;</span><span class="p">,</span> <span class="s2">&quot;brown&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">tom</span><span class="o">.</span><span class="n">first_name</span> <span class="c1">#=&gt; &quot;Tom&quot;</span>
+</span><span class='line'><span class="n">tom</span><span class="o">.</span><span class="n">hair_color</span> <span class="c1">#=&gt; &quot;brown&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">muhammad</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Muhammad&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">muhammad</span><span class="o">.</span><span class="n">first_name</span> <span class="c1">#=&gt; &quot;Muhammad&quot;</span>
+</span><span class='line'><span class="n">muhammad</span><span class="o">.</span><span class="n">hair_color</span> <span class="c1">#=&gt; &quot;black&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When we instantiate the Person class, we must give that instance a name and hair color. In the initialize method, these two parameters are turned into instance variables which can then be accessed by other methods in the class, but only on that single instance. For example, if we call <code>tom.first_name</code>, you can see that the program returns the input first name; same with the hair color. If we call these two methods on <code>muhammad</code> we see that we get different results. That is precisely because <code>@first_name</code> and <code>@hair_color</code> are instance variables, only to be used on a single instance of the class. In this case, tom and <code>muhammad</code> are two separate instances of the class Person. But Tom and Muhammad are both people, after all! What if we want them to share some characteristics? For that, we&rsquo;ll need class variables.</p>
+
+<p>Class variables are those available to every instance of that class. What is one trait that all people have in common? Consider a similar example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span>
+</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:hair_color</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">hair_color</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+</span><span class='line'>    <span class="vi">@hair_color</span> <span class="o">=</span> <span class="n">hair_color</span>
+</span><span class='line'>    <span class="vc">@@species</span> <span class="o">=</span> <span class="s2">&quot;homo sapiens&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">species</span>
+</span><span class='line'>    <span class="vc">@@species</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">tom</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Tom&quot;</span><span class="p">,</span> <span class="s2">&quot;brown&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">tom</span><span class="o">.</span><span class="n">first_name</span> <span class="c1">#=&gt; &quot;Tom&quot;</span>
+</span><span class='line'><span class="n">tom</span><span class="o">.</span><span class="n">hair_color</span> <span class="c1">#=&gt; &quot;brown&quot;</span>
+</span><span class='line'><span class="n">tom</span><span class="o">.</span><span class="n">species</span> <span class="c1">#=&gt; &quot;homo sapiens&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">muhammad</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Muhammad&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">muhammad</span><span class="o">.</span><span class="n">first_name</span> <span class="c1">#=&gt; &quot;Muhammad&quot;</span>
+</span><span class='line'><span class="n">muhammad</span><span class="o">.</span><span class="n">hair_color</span> <span class="c1">#=&gt; &quot;black&quot;</span>
+</span><span class='line'><span class="n">muhammad</span><span class="o">.</span><span class="n">species</span> <span class="c1">#=&gt; &quot;homo sapiens&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, the <code>@@species</code> variable is not only available to Tom, but also to Muhammad, and every other instance of <code>Person</code>!</p>
+
+<p>Now let&rsquo;s move on to constants and global variables. These two are similar in scope, but let&rsquo;s start with constants. Constants must be all-caps and, traditionally, are not to be changed. Technically, Ruby does allow the user to change them, but that runs counter to their whole point of being constant, unchanging variables. Like local variables, their scope is slightly fluid. If they are defined within a class, they are available anywhere in the context of that class. If they are defined outside a class, they have global scope, which means they are accessible from anywhere. To demonstrate these concepts, let&rsquo;s return again to our first example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">local_method</span>
+</span><span class='line'>  <span class="n">local_variable</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>  <span class="mi">5</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">local_variable</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">local_method</span> <span class="c1">#=&gt;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a local variable&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">local_variable</span> <span class="o">=&gt;</span> <span class="c1"># NameError: undefined local variable or method `local_variable&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What if we turned <code>local_variable</code> into a CONSTANT? We aren&rsquo;t allowed to define CONSTANTS within methods, because technically every time we run the method we&rsquo;d be re-assigning the constant (even though to the same string value, it would still have a different object ID every time, which isn&rsquo;t allowed), so let&rsquo;s define it outside the method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">CONSTANT_VARIABLE</span> <span class="o">=</span> <span class="s2">&quot;I am a CONSTANT variable&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">local_method</span>
+</span><span class='line'>  <span class="mi">5</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="no">CONSTANT_VARIABLE</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">local_method</span> <span class="c1">#=&gt;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a CONSTANT variable&quot;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a CONSTANT variable&quot;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a CONSTANT variable&quot;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a CONSTANT variable&quot;</span>
+</span><span class='line'>              <span class="c1"># &quot;I&#39;m a CONSTANT variable&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Look! the method has access to the constant even though it&rsquo;s defined outside of the method! The same goes for global variables, except they actually can be defined within methods:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">local_method</span>
+</span><span class='line'>  <span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">num</span><span class="o">|</span>
+</span><span class='line'>    <span class="vg">$global_variable</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m a global variable!&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num</span><span class="si">}</span><span class="s2">. </span><span class="si">#{</span><span class="vg">$global_variable</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="vg">$global_variable</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">local_method</span> <span class="c1">#=&gt;</span>
+</span><span class='line'>                <span class="c1"># 1. I&#39;m a global variable!</span>
+</span><span class='line'>                <span class="c1"># 2. I&#39;m a global variable!</span>
+</span><span class='line'>                <span class="c1"># 3. I&#39;m a global variable!</span>
+</span><span class='line'>                <span class="c1"># 4. I&#39;m a global variable!</span>
+</span><span class='line'>                <span class="c1"># 5. I&#39;m a global variable!</span>
+</span><span class='line'>                <span class="c1"># &quot;I&#39;m a global variable!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="vg">$global_variable</span> <span class="c1">#=&gt; &quot;I&#39;m a global variable!&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this example, <code>$global_variable</code> is accessible in the block in which it&rsquo;s defined, in the method itself (this is where a local variable would start giving us problems), and outside the block and method entirely!</p>
+
+<p>I hope you found this little explanation useful; I&rsquo;m off to learn more so I can write more next time! Thanks for reading! :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Liorr Yehuda Morrison</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-24T16:35:42-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:35 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/dev/'>dev</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/10/24/variable-scope-from-local-to-global/" data-via="" data-counturl="http://blog.liorrmorrison.com/2014/10/24/variable-scope-from-local-to-global/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/" title="Previous Post: Ruby Classes: Encapsulating State and Behavior">&laquo; Ruby Classes: Encapsulating State and Behavior</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/10/24/variable-scope-from-local-to-global/">Variable Scope: From Local to Global</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/">Ruby Classes: Encapsulating State and Behavior</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/">Meta-Learning FTW: Pairing &amp; Feedback</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/08/tech-issues-gentrification-and-the-digital-divide/">Tech Issues: Gentrification &amp; the Digital Divide</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/08/enumerables-some-mixins-for-your-picks-ins/">Enumerables: Some Mixins for Your Picks-ins</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Liorr Yehuda Morrison -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'liorrm';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://blog.liorrmorrison.com/2014/10/24/variable-scope-from-local-to-global/';
+        var disqus_url = 'http://blog.liorrmorrison.com/2014/10/24/variable-scope-from-local-to-global/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
