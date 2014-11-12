@@ -80,10 +80,11 @@ Class variables are those available to every instance of that class. What is one
 class Person
   attr_reader :first_name, :hair_color
 
+  @@species = "homo sapiens"
+
   def initialize(first_name, hair_color)
     @first_name = first_name
     @hair_color = hair_color
-    @@species = "homo sapiens"
   end
 
   def species
