@@ -430,13 +430,15 @@
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
+<span class='line-number'>27</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span>
 </span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:hair_color</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="vc">@@species</span> <span class="o">=</span> <span class="s2">&quot;homo sapiens&quot;</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">hair_color</span><span class="p">)</span>
 </span><span class='line'>    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">first_name</span>
 </span><span class='line'>    <span class="vi">@hair_color</span> <span class="o">=</span> <span class="n">hair_color</span>
-</span><span class='line'>    <span class="vc">@@species</span> <span class="o">=</span> <span class="s2">&quot;homo sapiens&quot;</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">species</span>
