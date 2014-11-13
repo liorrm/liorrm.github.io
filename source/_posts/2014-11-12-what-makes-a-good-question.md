@@ -43,7 +43,7 @@ Make sure there are no ambiguities in your question. There should be one way of 
 >
 > "I have this array: [1, 2, 3, 4] and a hash {1: "one", 2: "two", 3: "three", 4: "four"}. If I want to replace the array numbers with the hash variable, how would I do that?"
 
-Which one is bad? Both of them! The first one is incomprehensible and ambiguous. It suffers from being extremely unclear and extremely unspecific. The last one, while it is specific, is still ambiguous and almost too specific to be clear. The person could have asked: "How to replace the elements of an array with the values of a hash in Ruby"
+Which one is bad? Both of them! The first one is incomprehensible and ambiguous. It suffers from being extremely unclear and extremely unspecific. The last one, while it is specific, is still ambiguous and almost too specific to be clear. The person could have asked: "How do you replace the elements of an array with the values of a hash in Ruby?"
 
 Again, this last question is much more digestible. It is clear, unambiguous, and specific without being overwhelming with unnecessary details.
 
