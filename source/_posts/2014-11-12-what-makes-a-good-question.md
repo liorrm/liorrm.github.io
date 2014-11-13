@@ -8,9 +8,9 @@ categories: [culture, dev]
 
 Hmm, good question! I would say it depends somewhat on the context in which the question is being asked, as well as the subject matter. For this blog post, to keep things within a manageable scope, I'll focus on what makes a good programming-related question. There's quite a lot of material out there about what makes good questions, and I echo many of the qualities that others have heralded. This post is a synthesis of outside sources with some of my own original thoughts and examples. Three overarching qualities that make good questions are:
 
-1. Specificity
-2. Clarity
-3. Relevance
+    1. Specificity
+    2. Clarity
+    3. Relevance
 
 My fellow cohortmates are generally quite good at asking specific, clear, and relevant questions, but every once in a while you'll come across a question that more or less follows this pattern:
 
