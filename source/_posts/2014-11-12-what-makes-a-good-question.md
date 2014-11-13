@@ -6,19 +6,21 @@ comments: true
 categories: [culture, dev]
 ---
 
-Hmm, good question! I would say it depends somewhat on the context in which the question is being asked, as well as the subject matter. For this blog post, to keep things within a manageable scope, I'll focus on what makes a good programming-related question. There's quite a lot of material out there about what makes good questions, and I echo many of the qualities that others have heralded. This post is a synthesis of outside sources with some of my own original thoughts and examples. Three overarching qualities that make good questions are:
+Hmm, good question! I would say it depends somewhat on the context in which the question is being asked, as well as the subject matter. For this blog post, to keep things within a manageable scope, I'll focus on what makes a good programming-related question. There's quite a lot of material out there about what makes good questions, and I echo many of the qualities that others have heralded. This post is a synthesis of outside sources with some of my own original thoughts and examples. The three overarching qualities that make good questions are:
 
-  1. Specificity
-  2. Clarity
-  3. Relevance
+    1. Specificity
+    2. Clarity
+    3. Relevance
 
 My fellow cohortmates are generally quite good at asking specific, clear, and relevant questions, but every once in a while you'll come across a question that more or less follows this pattern:
 
-> "Help! I can't get this to work"
->
-> (insert overly large block of code here)
->
-> "Why isn't it working?"
+```
+ "Help! I can't get this to work"
+
+ (insert overly large block of code here)
+
+ "Why isn't it working?"
+```
 
 Perhaps it's obvious enough, but this is an example of a not-so-great question. Is it specific? No. Is it clear? Not at all. Is it relevant? Perhaps, but it's impossible to tell since it isn't specific or clear enough. You should evaluate a question's worthiness based on how easily you understand it, without having to run the code yourself. If anyone wanted to help out this distressed person, they would have to run the code to see what error the person is talking about, then troubleshoot it for the person. That's too much to ask of an answerer. Ideally, a good question is asked once the asker has already done a preliminary troubleshooting session, has isolated the problem somewhat, and asks a more specific question regarding the error message and the particular piece of code that causes the error, not the entire program. Odds are only a small fraction of the entire code file is causing the problem, so include only that code!
 
