@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-12T11:36:42-08:00</updated>
+  <updated>2014-11-12T16:42:02-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What Makes a Good Question?]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/11/12/what-makes-a-good-question/"/>
+    <updated>2014-11-12T13:52:27-08:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/11/12/what-makes-a-good-question</id>
+    <content type="html"><![CDATA[<p>Hmm, good question! I would say it depends somewhat on the context in which the question is being asked, as well as the subject matter. For this blog post, to keep things within a manageable scope, I&rsquo;ll focus on what makes a good programming-related question. There&rsquo;s quite a lot of material out there about what makes good questions, and I echo many of the qualities that others have heralded. This post is a synthesis of outside sources with some of my own original thoughts and examples. Three overarching qualities that make good questions are:</p>
+
+<ol>
+<li>Specificity</li>
+<li>Clarity</li>
+<li>Relevance</li>
+</ol>
+
+
+<p>My fellow cohortmates are generally quite good at asking specific, clear, and relevant questions, but every once in a while you&rsquo;ll come across a question that more or less follows this pattern:</p>
+
+<blockquote><p>&ldquo;Help! I can&rsquo;t get this to work&rdquo;
+(insert overly large block of code here)
+&ldquo;Why isn&rsquo;t it working?&rdquo;</p></blockquote>
+
+<p>Perhaps it&rsquo;s obvious enough, but this is an example of a not-so-great question. Is it specific? No. Is it clear? Not at all. Is it relevant? Perhaps, but it&rsquo;s impossible to tell since it isn&rsquo;t specific or clear enough. You should evaluate a question&rsquo;s worthiness based on how easily you understand it, without having to run the code yourself. If anyone wanted to help out this distressed person, they would have to run the code to see what error the person is talking about, then troubleshoot it for the person. That&rsquo;s too much to ask of an answerer. Ideally, a good question is asked once the asker has already done a preliminary troubleshooting session, has isolated the problem somewhat, and asks a more specific question regarding the error message and the particular piece of code that causes the error, not the entire program. Odds are only a small fraction of the entire code file is causing the problem, so include only that code!</p>
+
+<p>Let&rsquo;s quickly look at each of the three qualities I mention are key ingredients to good questions.</p>
+
+<h2>Specificity</h2>
+
+<p>Is your question about a particular issue you are having with your code? Go into detail about the issue. Don&rsquo;t do what the distressed person did above and just plop the entire thing on someone else. Take time to investigate what the problem is, and explain it as specifically as you can. If you have a limited amount of characters to work with, such as in the title of a question, make sure you make it as specific as possible so potential answerers know what they&rsquo;re dealing with before they click your question. Here&rsquo;s an example of two questions, one is good and one is bad. It should be very obvious:</p>
+
+<blockquote><p>&ldquo;How does the math module work?&rdquo;
+&ldquo;How do you endow a class with the Math module in Ruby?&rdquo;</p></blockquote>
+
+<p>So which one is bad? The first one, of course. It&rsquo;s not specific enough. How does it <em>&ldquo;work&rdquo;</em>? I&rsquo;m not even sure what that means, or how to answer it. It&rsquo;s far too general. And what language are you talking about? Multiple languages might have the same math module, so you better be clear about which one you&rsquo;re talking about! If your question leads answerers to ask you questions in return (like that first one), it&rsquo;s probably not good question. Now, the second one: it&rsquo;s much better. It asks about how you perform a particular action in a particular language. Anyone who stumbles upon this question in forums knows exactly how to answer it, because it is clear and specific.</p>
+
+<h2>Clarity</h2>
+
+<p>Make sure there are no ambiguities in your question. There should be one way of interpreting it, and it should be clear, understandable, and not too complex. Here are two more examples:</p>
+
+<blockquote><p>&ldquo;Calculating Averages in Ruby Name Error&rdquo;
+&ldquo;I have this array: [1, 2, 3, 4] and a hash {1: &#8220;one&rdquo;, 2: &ldquo;two&rdquo;, 3: &ldquo;three&rdquo;, 4: &ldquo;four&rdquo;}. If I want to replace the array numbers with the hash variable, how would I do that?&#8221;</p></blockquote>
+
+<p>Which one is bad? Both of them! The first one is incomprehensible and ambiguous. It suffers from being extremely unclear and extremely unspecific. The last one, while it is specific, is still ambiguous and almost too specific to be clear. The person could have asked:</p>
+
+<blockquote><p>&ldquo;How to replace the elements of an array with the values of a hash in Ruby&rdquo;</p></blockquote>
+
+<p>Again, this last question is much more digestible. It is clear, unambiguous, and specific without being overwhelming with unnecessary details.</p>
+
+<h2>Relevance</h2>
+
+<p>This last category is a bit trickier. Basically, an asker should ask a question that adds value to his or her understanding of a concept, and they should know their audience - who they are asking. In most cases, such as on Stack Overflow, this is a wold-wide network of brilliant programmers. Don&rsquo;t waste their time asking irrelevant or overly basic questions.</p>
+
+<blockquote><p>&ldquo;When was Ruby invented?&rdquo;
+&ldquo;What is the difference between an integer and a float?&rdquo;</p></blockquote>
+
+<p>If you are seeking a fact, Google it. Why ask a team of programmers a meta-fact about Ruby that warrants, literally, a one-word response? It&rsquo;s not worth their time, and it&rsquo;s certainly not an efficient use of your time, either! And how about the second example? It&rsquo;s not quite as bad, but again, this is a very basic question that you are better off discovering for yourself through your own research. Read about what an integer is, what a float is, and try working with them. If you come across a specific problem regarding the use of integers and floats in a program, <em>that&rsquo;s</em> the time to ask a question.</p>
+
+<p>I know I may have veered a bit into what makes a good question on the Internet, but the basic tenets still apply to questions asked in the physical world.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Event Listeners: The Critical Link]]></title>
@@ -294,83 +353,6 @@ end
 <p>Now that we&rsquo;ve initialized it, Liorr is an instance of the class Person. In the Person class, I have created several attr_readers (attribute readers), which allow the user to access information about Liorr. To see this information, simply type Liorr.sex, Liorr.age, Liorr.height, etc. into the command line, and the values with be returned. I specifically made all these attr_readers rather than attr_accessors because I want to limit the user to changing this information by using only the instance methods I created. As you can see, I had a some fun creating the method names. You can call <code>Liorr.sex_change</code> to change my sex to female, <code>Liorr.get_old</code> to add one year to my age, <code>Liorr.grow(new_height)</code> to change my height to a new input height, <code>Liorr.move(new_town)</code> to change my town to a new input town, <code>Liorr.convert(new_religion)</code> to change my religion to a new input religion, and <code>Liorr.change_career(new_job)</code> to change my occupation to a new input occupation.</p>
 
 <p>Classes are defined by their state and behavior. All of these characteristics &ndash; age, sex, height, religion, etc. &ndash; give the class Person its state, stored in instance variables, while the instance methods &ndash; #grow, #move, #convert, etc. &ndash; give its behavior. I used the Person class as an example because it is easy to demonstrate state and behavior with something so familiar and tangible - people do have all these states and behaviors in the real world! Now all you have to do is think of each class as a different species of object, each endowed with a set of character traits. Arrays and hashes, given the overlap in their states and behaviors, are two closely related classes. To draw another comparison to the real world, you could consider arrays and hashes as you would consider humans and chimpanzees &ndash; very closely related, but ultimately a different species.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Enumerables: Some Mixins for Your Picks-ins]]></title>
-    <link href="http://blog.liorrmorrison.com/2014/10/08/enumerables-some-mixins-for-your-picks-ins/"/>
-    <updated>2014-10-08T19:05:09-07:00</updated>
-    <id>http://blog.liorrmorrison.com/2014/10/08/enumerables-some-mixins-for-your-picks-ins</id>
-    <content type="html"><![CDATA[<p>Now almost done with Week 4 of Phase 0, we are plumbing the depths of Ruby and its amazing abilities. For this blog post, I will introduce you to one of Ruby&rsquo;s built-in Enumerable methods. Enumerable is a &ldquo;mixin&rdquo; module in Ruby, meaning that its methods are borrowed from various other class methods. Therefore, you can apply Enumerable methods to various classes, namely arrays and hashes. The method I&rsquo;ll focus in on is the #map method, which can be used on both arrays and hashes. I am going to assume that you have some sense of what the #each method does &mdash; basically, it iterates over an array, calling the given block (the code between braces or after a &lsquo;do&rsquo; statement) once for each element in the array; it passes each array element as a parameter to the block. But it doesn&rsquo;t have the power to actually modify the element. You can use the array&rsquo;s elements to create new data, but not to change the elements themselves, as the following example demonstrates:</p>
-
-<pre><code class="ruby">numbers = [1, 2, 3]
-
-def total(array)
-  sum = 0
-  array.each do |num|
-    sum += num
-  end
-  sum
-end
-
-total(numbers) #=&gt; 6
-
-numbers #=&gt; [1, 2, 3]
-</code></pre>
-
-<p>Here, #each is used to add up the elements of the array, and store them in a separate variable. If you were to return the array afterwards, it would be identical. Here&rsquo;s an analogy: the #each method &ldquo;visits&rdquo; each element and can get to know them well, but it can&rsquo;t change them. That&rsquo;s where map comes in. To demonstrate the #map method&rsquo;s differences, let&rsquo;s compare the following two snippets of code:</p>
-
-<pre><code class="ruby">##### using #each #####
-
-numbers =  [1, 2, 3, 4, 5]
-
-numbers.each do |num|
-  num * 2
-end
-
-#=&gt; [1, 2, 3, 4, 5]
-
-##### using #map #####
-
-array #=&gt; [1, 2, 3, 4, 5]
-
-array.map do |num|
-  num * 2
-end
-
-#=&gt; [2, 4, 6, 8, 10]
-
-numbers #=&gt; [1, 2, 3, 4, 5]
-</code></pre>
-
-<p>The #each method does nothing, while #map successfully executes the block and modifies each element of the array. But does it really change the array? Not exactly. It shows you a modified version of that array with the code block executed, but you can think of that as a temporary glimpse into what it would do it if actually did modify it. As you can see in the above example, if you call the array after calling the code block on it, it remains unchanged. For a true, permanent change, we need the &ldquo;!&rdquo; at the end, or we could save the modified array to a new variable. The exclamation point at the end of a method indicates that the method is what is called a &ldquo;dangerous&rdquo; or &ldquo;destructive&rdquo; method (or colloquially, a &ldquo;bang&rdquo; method) because it permanently changes the composition of the array, as the example below demonstrates:</p>
-
-<pre><code class="ruby">numbers = [1, 2, 3, 4, 5]
-
-numbers.map! do |num|
-  num * 2
-end
-
-#=&gt; [2, 4, 6, 8, 10]
-
-numbers #=&gt; [2, 4, 6, 8, 10]
-</code></pre>
-
-<p>The #map and #map! methods are very useful in making real changes to various data structures. For example, if you had an array of data containing both strings and numbers and wanted to convert all the numbers to strings, you could use #map or #map!, depending on whether you want to make a modified &ldquo;copy&rdquo; of the array for immediate use, or change it permanently.</p>
-
-<p>Here is another example that uses the map method to convert array elements into strings:</p>
-
-<pre><code class="ruby">i_want_pets = ["I", "want", 3, "pets", "but", "only", "have", 2]
-
-def my_array_sorting_method(source)
-  source.map {|element| element.to_s}
-end
-
-#=&gt; ["I", "want", "3", "pets", "but", "only", "have", "2"]
-</code></pre>
-
-<p>And there you have a little introduction to Ruby&rsquo;s Enumerable module! Be sure to check out the <a href="http://ruby-doc.org">Ruby Documentation </a> for more information and to see other Enumerable methods.</p>
 ]]></content>
   </entry>
   
