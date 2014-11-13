@@ -38,7 +38,7 @@
   <header role="banner"><hgroup>
   <h1><a href="/">Liorr Yehuda Morrison</a></h1>
   
-    <h2>Navigating the World of Software Development</h2>
+    <h2>musings of a budding programmer/geo-aviation freak</h2>
   
 </hgroup>
 
@@ -306,10 +306,68 @@
         <a href="/2014/10/25/stereotype-threat-a-vicious-cycle/">Stereotype Threat: A Vicious Cycle</a>
       </li>
     
+      <li class="post">
+        <a href="/2014/10/24/variable-scope-from-local-to-global/">Variable Scope: From Local to Global</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/">Ruby Classes: Encapsulating State and Behavior</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/">Meta-Learning FTW: Pairing &amp; Feedback</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/08/tech-issues-gentrification-and-the-digital-divide/">Tech Issues: Gentrification &amp; the Digital Divide</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/10/08/enumerables-some-mixins-for-your-picks-ins/">Enumerables: Some Mixins for Your Picks-ins</a>
+      </li>
+    
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/liorrm">@liorrm</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
 
+        github.showRepos({
+            user: 'liorrm',
+            count: 1,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/liorr.morrison?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
 
 
 
@@ -352,6 +410,14 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 
 
 
