@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Culture | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/culture/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-12T16:44:32-08:00</updated>
+  <updated>2014-11-12T16:45:51-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -20,12 +20,10 @@
     <id>http://blog.liorrmorrison.com/2014/11/12/what-makes-a-good-question</id>
     <content type="html"><![CDATA[<p>Hmm, good question! I would say it depends somewhat on the context in which the question is being asked, as well as the subject matter. For this blog post, to keep things within a manageable scope, I&rsquo;ll focus on what makes a good programming-related question. There&rsquo;s quite a lot of material out there about what makes good questions, and I echo many of the qualities that others have heralded. This post is a synthesis of outside sources with some of my own original thoughts and examples. Three overarching qualities that make good questions are:</p>
 
-<ol>
-<li>Specificity</li>
-<li>Clarity</li>
-<li>Relevance</li>
-</ol>
-
+<pre><code>1. Specificity
+2. Clarity
+3. Relevance
+</code></pre>
 
 <p>My fellow cohortmates are generally quite good at asking specific, clear, and relevant questions, but every once in a while you&rsquo;ll come across a question that more or less follows this pattern:</p>
 
