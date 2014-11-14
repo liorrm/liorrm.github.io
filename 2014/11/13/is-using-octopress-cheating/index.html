@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Request-Response - Liorr Yehuda Morrison</title>
+  <title>Octopress Conference - Liorr Yehuda Morrison</title>
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="Request-Response is the fundamental building block of the Internet and computer networking. The systems works likes so: A personal computer, the &hellip;">
+  <meta name="description" content="During the second week of Phase 0 at DBC, we were asked to create our own websites, including a blog site. After laboring for many hours over it, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/09/07/request-response">
+  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/11/13/is-using-octopress-cheating">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Liorr Yehuda Morrison" type="application/atom+xml">
@@ -69,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Request-Response</h1>
+      <h1 class="entry-title">Octopress Conference</h1>
     
     
       <p class="meta">
@@ -78,7 +78,7 @@
 
 
 
-<time class='entry-date' datetime='2014-09-07T15:12:29-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:12 pm</span></time>
+<time class='entry-date' datetime='2014-11-13T16:09:21-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:09 pm</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://blog.liorrmorrison.com">Comments</a>
@@ -88,24 +88,11 @@
   </header>
 
 
-<div class="entry-content"><p>Request-Response is the fundamental building block of the Internet and computer networking. The systems works likes so:</p>
+<div class="entry-content"><p>During the second week of Phase 0 at DBC, we were asked to create our own websites, including a blog site. After laboring for many hours over it, including tinkering endlessly with CSS padding, margins, background-colors, etc (even just <em>thinking</em> about it overwhelms me!), I ended up with something I was pretty proud of! So for the last few months I&rsquo;ve been thinking, <em>&ldquo;Why not show off my own HTML CSS skills by keeping my original blog and presenting that to prospective employers, rather than using a framework?&rdquo;</em> I am now coming to realize I should indeed use a framework, which is needless to say because you&rsquo;re reading an Octopress blog. But why? Well, sure my original blog wasn&rsquo;t bad, but it was severely limited and had some bugs. The design wasn&rsquo;t completely responsive, and it didn&rsquo;t have nearly as much functionality (Facebook, Twitter, GutHub integration, DISQUS comments, etc.). Also, every time I wanted to write a post I would have to copy it in to the blog.html page and deal with annoying tags &ndash; not to mention the headache of including snippets of code. Bottom line: it was a hassle, and I&rsquo;ve realized no hackers really do it like that. Octopress is known as the &ldquo;hacker blog&rdquo; platform, and although the process of writing posts is relatively automated, you still use Sublime to write the posts, edit YML files yourself, and push to GitHub - so it really is a perfect hacker platform. There&rsquo;s no nitty gritty stuff like dealing with HTML tags, but the platform still requires the blogger to know how to use git and make changes to files written in various programming languages.</p>
 
-<p>A personal computer, the <em>client</em>, is used to access a web page stored on a remote database. The database is linked to a computer that acts as the <em>server</em>, which can access the database and provide the requested information to the client. Using a web browser, the client requests the web page from the server, and the server responds to the client with the requested information by accessing the database. It&rsquo;s no coincidence that the words <em>client</em> and <em>server</em> are used for this system, as it&rsquo;s very analogous to a restaurant. The client, or customer, orders the food by telling the server, or waiter, what he/she wants (&ldquo;Hi, I&rsquo;ll have a google burger please&rdquo;). The waiter then goes to the kitchen, the database, gets the order, and serves it to the &ldquo;client&rdquo;/customer. Now it all makes sense why sometimes, when a server experiences higher-than-normal requests, it wont be able to respond to all of them, and will temporarily shut down. This is akin to how a restaurant will often make customers wait during peak hours, because they simple can&rsquo;t handle all those orders at once!</p>
+<h3>But what about the design? Isn&rsquo;t it too bland?</h3>
 
-<h3>HTTP</h3>
-
-<p>The &ldquo;language&rdquo; used in this process is called the Hypertext Transper Protocol, and includes request &ldquo;methods&rdquo;, the most oft used being GET, HEAD, POST, and DELETE.</p>
-
-<ul>
-<li><p>GET is, as you could guess, is the request for retrieving data.Going to google.com, for example, would use the GET http method.Because it does not modify anything on the server-side, it is considered a &ldquo;safe&rdquo; method.</p></li>
-<li><p>HEAD is the same as GET, except that the server only returns <em>metainformation</em>, that is, information about the entity rather than the entity itself. This is typically used in testing whether links are valid or have recently been modified. Because no modification occurs, it is also a safe method.</p></li>
-<li><p>POST is the request that the server accept a new piece of information enclosed in the request; a typical example of this is a blog or forum, where clients are adding posts that change the state of the server, or have other side effects (like transferring money or sending an email). Because something is being changed with the POST method, it is not considered a safe
-method.</p></li>
-<li><p>DELETE is the request that a given piece of information or resource be deleted by the server, like deleting an email. Again, because the state of the server is being changed, it is not considered a safe method.</p></li>
-</ul>
-
-
-<p>During the early years of the Internet, the web was dominated by static websites that, when requested by the client, were generated and didn&rsquo;t change unless another request was made for the most up-to-date version. Today, however, there are a plethora of technologies that allow for dynamic web pages, where there is a constant flow of communication between the client and the server, allowing content to change from moment to moment. The main technology that made these dynamic web pages a reality is AJAX, which is behind almost all of the asynchronous, dynamic web applications that dominate today&rsquo;s Internet. AJAX allows for this <em>asynchronization</em>, where a request can be made in the back-end without having to wait for a response to make another request, thus not being synchronized. These asynchronous requests and responses can happen without having to reload the web page, which is how we see content changing on the website without the website&rsquo;s core structure changing.</p>
+<p>Well, I probably would have thought that a few months ago, but not now. I used to think that the more technical, animated, interactive a site is, the better&hellip; and that a site&rsquo;s coolness was determined by how many cool JS and jQuery features are implemented. Not so! What&rsquo;s the function? Form should follow function, and if the function is to read content and navigate blog arhives, you don&rsquo;t need any of that fancy stuff. It&rsquo;s not appropriate. Octopress does exactly what it should do, and nothing more.</p>
 </div>
 
 
@@ -121,12 +108,12 @@ method.</p></li>
 
 
 
-<time class='entry-date' datetime='2014-09-07T15:12:29-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:12 pm</span></time>
+<time class='entry-date' datetime='2014-11-13T16:09:21-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:09 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/dev/'>dev</a>
+    <a class='category' href='/categories/culture/'>culture</a>, <a class='category' href='/categories/dev/'>dev</a>
   
 </span>
 
@@ -135,7 +122,7 @@ method.</p></li>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/09/07/request-response/" data-via="liorrm" data-counturl="http://blog.liorrmorrison.com/2014/09/07/request-response/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/11/13/is-using-octopress-cheating/" data-via="liorrm" data-counturl="http://blog.liorrmorrison.com/2014/11/13/is-using-octopress-cheating/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -148,10 +135,8 @@ method.</p></li>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2014/09/07/testing-continued/" title="Previous Post: Testing continued">&laquo; Testing continued</a>
+        <a class="basic-alignment left" href="/2014/11/12/what-makes-a-good-question/" title="Previous Post: What Makes a Good Question?">&laquo; What Makes a Good Question?</a>
       
-      
-        <a class="basic-alignment right" href="/2014/09/12/who-i-am/" title="Next Post: Who I Am">Who I Am &raquo;</a>
       
     </p>
   </footer>
@@ -275,8 +260,8 @@ method.</p></li>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.liorrmorrison.com/2014/09/07/request-response/';
-        var disqus_url = 'http://blog.liorrmorrison.com/2014/09/07/request-response/';
+        var disqus_identifier = 'http://blog.liorrmorrison.com/2014/11/13/is-using-octopress-cheating/';
+        var disqus_url = 'http://blog.liorrmorrison.com/2014/11/13/is-using-octopress-cheating/';
         var disqus_script = 'embed.js';
       
     (function () {

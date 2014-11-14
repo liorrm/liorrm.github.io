@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-11-13T15:39:30-08:00</updated>
+  <updated>2014-11-13T16:46:02-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress Conference]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/11/13/is-using-octopress-cheating/"/>
+    <updated>2014-11-13T16:09:21-08:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/11/13/is-using-octopress-cheating</id>
+    <content type="html"><![CDATA[<p>During the second week of Phase 0 at DBC, we were asked to create our own websites, including a blog site. After laboring for many hours over it, including tinkering endlessly with CSS padding, margins, background-colors, etc (even just <em>thinking</em> about it overwhelms me!), I ended up with something I was pretty proud of! So for the last few months I&rsquo;ve been thinking, <em>&ldquo;Why not show off my own HTML CSS skills by keeping my original blog and presenting that to prospective employers, rather than using a framework?&rdquo;</em> I am now coming to realize I should indeed use a framework, which is needless to say because you&rsquo;re reading an Octopress blog. But why? Well, sure my original blog wasn&rsquo;t bad, but it was severely limited and had some bugs. The design wasn&rsquo;t completely responsive, and it didn&rsquo;t have nearly as much functionality (Facebook, Twitter, GutHub integration, DISQUS comments, etc.). Also, every time I wanted to write a post I would have to copy it in to the blog.html page and deal with annoying tags &ndash; not to mention the headache of including snippets of code. Bottom line: it was a hassle, and I&rsquo;ve realized no hackers really do it like that. Octopress is known as the &ldquo;hacker blog&rdquo; platform, and although the process of writing posts is relatively automated, you still use Sublime to write the posts, edit YML files yourself, and push to GitHub - so it really is a perfect hacker platform. There&rsquo;s no nitty gritty stuff like dealing with HTML tags, but the platform still requires the blogger to know how to use git and make changes to files written in various programming languages.</p>
+
+<h3>But what about the design? Isn&rsquo;t it too bland?</h3>
+
+<p>Well, I probably would have thought that a few months ago, but not now. I used to think that the more technical, animated, interactive a site is, the better&hellip; and that a site&rsquo;s coolness was determined by how many cool JS and jQuery features are implemented. Not so! What&rsquo;s the function? Form should follow function, and if the function is to read content and navigate blog arhives, you don&rsquo;t need any of that fancy stuff. It&rsquo;s not appropriate. Octopress does exactly what it should do, and nothing more.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What Makes a Good Question?]]></title>
@@ -295,67 +308,6 @@ $global_variable #=&gt; "I'm a global variable!"
 <p>In this example, <code>$global_variable</code> is accessible in the block in which it&rsquo;s defined, in the method itself (this is where a local variable would start giving us problems), and outside the block and method entirely!</p>
 
 <p>I hope you found this little explanation useful; I&rsquo;m off to learn more so I can write more next time! Thanks for reading! :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby Classes: Encapsulating State and Behavior]]></title>
-    <link href="http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/"/>
-    <updated>2014-10-18T13:55:20-07:00</updated>
-    <id>http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior</id>
-    <content type="html"><![CDATA[<p>In Ruby, a class is an encapsulation of state and behavior. As we know, Ruby is an object-oriented programming language, so (almost) everything in Ruby is an object. Furthermore, all objects belong to a class, which you can loosely think of as a &ldquo;species&rdquo; of objects. Each class has its own set of characteristics. For example, according to the Ruby docs, the Array class is defined as &ldquo;ordered, integer-indexed collections of any object.&rdquo; The class comes with methods that can be called upon an instance, or example, of that class. Ruby allows users to create classes and to modify existing ones. To better demonstrate the concept of classes, I&rsquo;ll create a class called Person:</p>
-
-<pre><code class="ruby">class Person
-  attr_reader :sex, :age, :height, :town, :religion, :occupation
-
-  def initialize(name, sex, age, height, town, religion, occupation)
-    @name = name
-    @sex = sex
-    @age = age
-    @height = height
-    @town = town
-    @religion = religion
-    @occupation = occupation
-  end
-
-  def sex_change
-    if @sex == "male"
-      @sex = "female"
-    elsif @sex == "female"
-      @sex = "male"
-    end
-  end
-
-  def get_old
-    @age += 1
-  end
-
-  def grow(new_height)
-    @height = new_height
-  end
-
-  def move(new_town)
-    @town = new_town
-  end
-
-  def convert(new_religion)
-    @religion = new_religion
-  end
-
-  def change_career(new_job)
-    @occupation = new_job
-  end
-end
-</code></pre>
-
-<p>To begin, you need to initialize a new instance of that class. Basically, you need to create an individual person from the theoretical class Person. As you can see in the initialize function, I have created a few characteristics each person should have: sex, age, height, town, religion, and occupation. Of course there are many others I could include, but these were the ones that immediately came to mind. When you initialize a new instance of person, you must pass in the above seven arguments; so for example, you would type in:</p>
-
-<pre><code class="ruby">Liorr = Person.new("Liorr", "male", 20, "6'1", "San Francisco", "Agnostic", "Programmer")
-</code></pre>
-
-<p>Now that we&rsquo;ve initialized it, Liorr is an instance of the class Person. In the Person class, I have created several attr_readers (attribute readers), which allow the user to access information about Liorr. To see this information, simply type Liorr.sex, Liorr.age, Liorr.height, etc. into the command line, and the values with be returned. I specifically made all these attr_readers rather than attr_accessors because I want to limit the user to changing this information by using only the instance methods I created. As you can see, I had a some fun creating the method names. You can call <code>Liorr.sex_change</code> to change my sex to female, <code>Liorr.get_old</code> to add one year to my age, <code>Liorr.grow(new_height)</code> to change my height to a new input height, <code>Liorr.move(new_town)</code> to change my town to a new input town, <code>Liorr.convert(new_religion)</code> to change my religion to a new input religion, and <code>Liorr.change_career(new_job)</code> to change my occupation to a new input occupation.</p>
-
-<p>Classes are defined by their state and behavior. All of these characteristics &ndash; age, sex, height, religion, etc. &ndash; give the class Person its state, stored in instance variables, while the instance methods &ndash; #grow, #move, #convert, etc. &ndash; give its behavior. I used the Person class as an example because it is easy to demonstrate state and behavior with something so familiar and tangible - people do have all these states and behaviors in the real world! Now all you have to do is think of each class as a different species of object, each endowed with a set of character traits. Arrays and hashes, given the overlap in their states and behaviors, are two closely related classes. To draw another comparison to the real world, you could consider arrays and hashes as you would consider humans and chimpanzees &ndash; very closely related, but ultimately a different species.</p>
 ]]></content>
   </entry>
   
