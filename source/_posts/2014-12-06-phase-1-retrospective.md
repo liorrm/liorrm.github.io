@@ -9,20 +9,21 @@ categories: [dev, culture]
 It has been a little while since I've posted on here, but of course that's to be expected, since the intensive, on-site portion of DBC started a couple days after my last post. I can't even begin to describe how much I have learned, struggled, and grown through the first phase. Although the three could be seen as three sides of some mutant three-sided coin (I guess that would be like a cynlinder?), I'll just reflect briefly upon the three of them separately.
 
 
-###Learning
+##Learning
 
-I have learned a great deal of new material, but most importantly, I have learned new paradigms and have taken my already existing Ruby knowledge to a level I never knew existed. A few weeks ago ago I would have been proud of a 15-line method that checked whether or not a credit card number was valid. Gone are the days of creating these 'all-in-ones', what DBC calls *God Methods". I have learned the concepts of single responsibility methods and classes, object-oriented design, and reducing dependencies--within classes, between classes, and in methods by using the argument hash.
+I have learned a great deal of new material, but most importantly, I have learned new paradigms and have taken my already existing Ruby knowledge to a level I never knew existed. A few weeks ago ago I would have been proud of a 15-line method that checked whether or not a credit card number was valid. Gone are the days of creating these 'all-in-ones', what DBC calls *God Methods*. I have learned the concepts of single responsibility methods and classes, object-oriented design, and reducing dependencies--within classes, between classes, and in methods by using the argument hash.
 
 Another significant learning feat was moving in the direction of less primitive terminal apps by using multiple-files, SQL databases, ActiveRecord, and the model-view-controller design paradigm (hinting towards the beast that is Ruby on Rails).
 
 Beyond this, my vanilla Ruby skills have improved a great deal, as I feel leagues more confident navigating almost any programming problem. The difficult part is no longer "how do I do this in Ruby?", but rather, "how do I break this problem down into tangible steps?"
 
 
-###Struggling
+##Struggling
 
 I have struggled in two major regards these past few weeks; one, in how to approach programming challenges with many moving parts, such as with the Sudoku solver challenge during the first week of Phase 1; and two, in how to work on a challenge with a wide array of personalities, from timid and quiet to dominant and loud. The idea of fleshing out the problem in pseudocode (or as one of my Phase 1 teachers calls it on the Friday of Sudoku, Sud*o*code) was one I could grasp in the abstract, but when it came down to tackling the problem, I always felt myself gravitating towards just hacking away at the keyboard without giving the problem enough forethought. It was my first experience tackling a challenge of this magnitude, and for the first time I couldn't really get away with my Phase 0 'head-on' approach. This refusal to take a step back led to much frustration and ultimately not being able to complete the challenge by the end of the day. Although I did complete it the next day, the big takeaway from that day-long struggle was to make sure you know what you're going to do before you do it. Never explore unfamiliar territory without a map--or at the very least, a compass!
 
 One more struggle, which combines the two above: group work, especially with unclear expectations and ambiguous leadership. It's not easy, and it's very frustrating. The lack of clarity leads to not being able to delegate tasks, and instead everyone working on the same task, which is incredible inefficient. As Sherif, one of my teachers, put it, it's like doing an "eight legged sock race", which is exactly how it felt during one exercise.
+
 
 ##Growing
 
