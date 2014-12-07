@@ -33,4 +33,6 @@ I have also grown to be more at peace with failure. I've realized that any failu
 
 Lastly, I approach problems much more methodically. I had the serendipitous privilege of being a team lead on a small one-day project. Whereas before I would have been too scared to delegate tasks and trust the process, this time we pseudocoded as a group until everyone was clear about their input and output. We all worked separately, and all it took was 5 minutes of "gluing" to put the parts of the project together. I was so pleased with the fact that, despite not seeing exactly what my team was working on, their components fit together quite seamlessly. It was a great way of finishing off Phase 1, in direct contrast to the much less successful group project I had a week earlier.
 
-My favorite Phase 1 teacher, Derek, said that Phase 1 makes you a programmer, Phase 2 makes you a web developer. I am excited to forge ahead into unfamiliar territory, carrying with me the arsenal I acquired during Phase 1---*embrace the confusion!*
+My favorite Phase 1 teacher, Derek, said that Phase 1 makes you a programmer, but Phase 2 makes you a web developer. I am excited to forge ahead into unfamiliar territory, carrying with me the arsenal I acquired during Phase 1.
+
+###*embrace the confusion!*
