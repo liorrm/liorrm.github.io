@@ -15,7 +15,7 @@ Please feel free to contact me or stalk me! (I'm ridiculously easy to find on th
 
 ### [liorr.morrison@gmail.com](mailto:liorr.morrison@gmail.com)
 
-### [Linked-In](https://www.linkedin.com/in/liorrm)
+### [LinkedIn](https://www.linkedin.com/in/liorrm)
 
 ### [GitHub](https://github.com/liorrm)
 
