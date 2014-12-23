@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Getting My Feet Wet with Maps and Geo-tech"
+date: 2014-12-22 16:58:40 -0800
+comments: true
+categories: [dev, geo]
+---
+
+Now that I have a couple weeks to myself and a decent amount of web development training under my belt, it was finally time to sit down and start researching map-related web development technologies. This is something I have wanted to do from the very beginning, but I lacked the basic programming and development skills to understand any of the map-specific stuff. It will probably come as no surprise at all that I decided to do a map-based project for my P10 challenge at Dev Bootcamp, which is a comprehensive, independent, open-ended project where we build anything, so long as it is a full-stack project (from SQL to CSS). Essentially, the project is a map of all the Mormon/LDS temples in the world. I'm not exactly sure what and how many features I will implement, but having a map with custom markers, a SQL database, and some aesthetic user interface would be part of the MVP. I feel extremely fortunate that I happened to enroll at DBC during the holidays, because that means I have two extra weeks for digesting information and looking into geography-related technologies that I've been intrigued by for so long. I've spend the last few days learning about MapBox's API, Mapbox.js, which is extremely comprehensive and well documented. I was able to get my own map set up within a few minutes, and MapBox also provides a ton of tutorials for how to use their API, which is essentially a giant JavaScript library that includes the already comprehensive Leaflet.js library. It's been really exciting to dive into this new material and see all the cool features it has to offer, and even more exciting that I actually understand it! In the past few days, I've been able to create the front-end MVP of my project---a custom map with an LDS-themed color scheme, golden Angel Moroni markers marking each temple, and a sidebar menu. There were a couple steps to this process:
+
+Thankfully, I found an XML file with all the LDS Temple data, so all it took was parsing the XML using the Ruby Nokogiri gem, creating Ruby hashes from the XML data, and converting those hashes to geoJSON objects using the json gem (what *isn't* already done for you in the tech world??). That's where MapBox's magic takes over. It handles an array of geoJSON objects and adds a layer on its map with those objects, and - voila! - I had a map with all the temples on it!
+
+![MormonMapper](/images/MMpreview.png)
+
+Now, my next challenge is figuring out what the next steps are for the project. I want to store the temple data in a database, probably PostgreSQL, but I am not entirely sure how to go about this. Do I store the temples as JSON objects within the database itself, or create them from the ActiveRecord objects when the database is queried? Fortunately there are lots of geography-related gems and add-ons in Ruby, including PostGIS and geocoder, so I'm sure I'll have a breakthrough shortly. Still, if I had more time to do this project, using Python/Django would probably be the best route in terms of support for geo-features, but that would be a much larger project, as it would mean learning a new language and framework (perhaps something to do post-DBC while job-hunting? I think so!).
+
+ In any event, it's been awesome to delve into all this new material -- and even cooler that it indulges my lifelong interest in geography.
