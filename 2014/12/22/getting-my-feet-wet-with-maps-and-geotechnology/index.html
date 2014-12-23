@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Tech Issues: Gentrification &amp; the Digital Divide - Liorr Yehuda Morrison</title>
+  <title>Getting My Feet Wet With Maps and Geo-tech - Liorr Yehuda Morrison</title>
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="When I moved to San Francisco a couple months ago, I got a job as a driver for none other than a tech start-up whose product is very simple: deliver &hellip;">
+  <meta name="description" content="Now that I have a couple weeks to myself and a decent amount of web development training under my belt, it was finally time to sit down and start &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/10/08/tech-issues-gentrification-and-the-digital-divide">
+  <link rel="canonical" href="http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Liorr Yehuda Morrison" type="application/atom+xml">
@@ -69,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Tech Issues: Gentrification &amp; the Digital Divide</h1>
+      <h1 class="entry-title">Getting My Feet Wet With Maps and Geo-tech</h1>
     
     
       <p class="meta">
@@ -78,7 +78,7 @@
 
 
 
-<time class='entry-date' datetime='2014-10-08T21:20:34-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:20 pm</span></time>
+<time class='entry-date' datetime='2014-12-22T16:58:40-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>4:58 pm</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://blog.liorrmorrison.com">Comments</a>
@@ -88,15 +88,15 @@
   </header>
 
 
-<div class="entry-content"><p>When I moved to San Francisco a couple months ago, I got a job as a driver for none other than a tech start-up whose product is very simple: deliver food from restaurants that don&rsquo;t have their own delivery drivers. I had only been in the city two weeks before starting, so I didn&rsquo;t know my way around at all. But as I raced up and down Market Street, all around the Financial District and the SoMa neighborhood, I quickly learned my way around; but that wasn&rsquo;t the only thing I learned. I couldn&rsquo;t help but notice repeating patterns &ndash; sad, disturbing patterns, really. For the vast majority of my deliveries, I would bring food to white and Asian men working in technology and finance. After breaking a sweat to find a barely-legal parking spot in these dense neighborhoods, I would encounter numerous homeless and drug-addicted people, their makeshift sleeping areas, and the pungent stench of urine. Completely surrounded by this sad reality would be the building to which I was headed, and upon entering, it felt more like a portal to a completely different world than a door to an office building. Freshly renovated offices chock-full of technology, beautiful kitchens with the latest appliances, breath-taking views, and happy, well-paid, white, male employees. Then, stepping outside again, the stench of urine is ever-present, non-white people are sitting and lying on the sidewalks with a moribund, deathly gaze, and beggars plea for even a single cent.</p>
+<div class="entry-content"><p>Now that I have a couple weeks to myself and a decent amount of web development training under my belt, it was finally time to sit down and start researching map-related web development technologies. This is something I have wanted to do from the very beginning, but I lacked the basic programming and development skills to understand any of the map-specific stuff. It will probably come as no surprise at all that I decided to do a map-based project for my P10 challenge at Dev Bootcamp, which is a comprehensive, independent, open-ended project where we build anything, so long as it is a full-stack project (from SQL to CSS). Essentially, the project is a map of all the Mormon/LDS temples in the world. I&rsquo;m not exactly sure what and how many features I will implement, but having a map with custom markers, a SQL database, and some aesthetic user interface would be part of the MVP. I feel extremely fortunate that I happened to enroll at DBC during the holidays, because that means I have two extra weeks for digesting information and looking into geography-related technologies that I&rsquo;ve been intrigued by for so long. I&rsquo;ve spend the last few days learning about MapBox&rsquo;s API, Mapbox.js, which is extremely comprehensive and well documented. I was able to get my own map set up within a few minutes, and MapBox also provides a ton of tutorials for how to use their API, which is essentially a giant JavaScript library that includes the already comprehensive Leaflet.js library. It&rsquo;s been really exciting to dive into this new material and see all the cool features it has to offer, and even more exciting that I actually understand it! In the past few days, I&rsquo;ve been able to create the front-end MVP of my project&mdash;a custom map with an LDS-themed color scheme, golden Angel Moroni markers marking each temple, and a sidebar menu. There were a couple steps to this process:</p>
 
-<p>What the hell? Could the difference be any more stark? Of course a lot of factors can explain this infuriating inequality, but unfortunately the technology sector has done seemingly little to mitigate it. When I was delivering to a customer in the Mission District, I came across this powerful image:</p>
+<p>Thankfully, I found an XML file with all the LDS Temple data, so all it took was parsing the XML using the Ruby Nokogiri gem, creating Ruby hashes from the XML data, and converting those hashes to geoJSON objects using the json gem (what <em>isn&rsquo;t</em> already done for you in the tech world??). That&rsquo;s where MapBox&rsquo;s magic takes over. It handles an array of geoJSON objects and adds a layer on its map with those objects, and - voila! - I had a map with all the temples on it!</p>
 
-<p><img src="/images/gentrification.JPG" alt="Gentrification" /></p>
+<p><img src="/images/MMpreview.png" alt="MormonMapper" /></p>
 
-<p>It depicts several fliers posted on a house to be renovated. On the fliers, the Google bus that transports employees to the Google HQ in Mountain View from San Francisco is chasing a group of people, the symbolic image used near the border with Mexico alerting drivers that people could cross the road at any moment. These fliers speak volumes. The tech boom in San Francisco has caused a surge in gentrification, especially in neighborhoods like SoMa and the Mission District. Mark Zuckerburg himself recently bought a house in the Mission. According to <a href="http://www.newsweek.com/2014/04/25/tech-boom-forces-ruthless-gentrification-san-francisco-248135.html">a recent NewsWeek article</a>, the Silicon Valley and San Francisco tech boom has driven up evictions by 115 percent in the past year in San Francisco. Because of the city&rsquo;s inability to spread out and keep growing, people who have lived in San Francisco for decades are being forced out by young, overwhelmingly white techies who can afford to pay 2-4 times the rent the previous tenants paid. It also states that, &ldquo;Since 2011, 69 percent of the no-fault evictions have occurred within four blocks of a private bus shuttle stop for tech company employees&rdquo;. The sad thing about this is that, on paper, San Francisco is flourishing. Record-low unemployment, a strong economic base, and high median salaries paint a different picture than the one actually happening. Rather than San Franciscans getting richer, it&rsquo;s new, richer people coming into the city, replacing the less rich.</p>
+<p>Now, my next challenge is figuring out what the next steps are for the project. I want to store the temple data in a database, probably PostgreSQL, but I am not entirely sure how to go about this. Do I store the temples as JSON objects within the database itself, or create them from the ActiveRecord objects when the database is queried? Fortunately there are lots of geography-related gems and add-ons in Ruby, including PostGIS and geocoder, so I&rsquo;m sure I&rsquo;ll have a breakthrough shortly. Still, if I had more time to do this project, using Python/Django would probably be the best route in terms of support for geo-features, but that would be a much larger project, as it would mean learning a new language and framework (perhaps something to do post-DBC while job-hunting? I think so!).</p>
 
-<p>The technology industry is inundated with money and power. With that money and power comes responsibility, and it has fallen short of realizing and taking responsibility for the unintended consequences of its exponential growth. San Francisco has been fundamentally changed by the growth of the tech sector, and while technology brings great things, the people to make it seem to be a little too consumed with growing their businesses, their paychecks, and living a cushy life life. The conveniences that cool new apps and products bring come at the expense of people&rsquo;s very existence here in this city. It&rsquo;s not a simple problem, nor does it have a simple solution. But technology companies could start by having more outreach, having frequent employee volunteer days, for example, or investing in non-profit organizations committed to teaching the underprivileged technical stills. Instead of replacing pre-tech boom San Franciscans, they could help educate them so they, too, can stay and enjoy the city they love.</p>
+<p> In any event, it&rsquo;s been awesome to delve into all this new material &ndash; and even cooler that it indulges my lifelong interest in geography.</p>
 </div>
 
 
@@ -112,12 +112,12 @@
 
 
 
-<time class='entry-date' datetime='2014-10-08T21:20:34-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:20 pm</span></time>
+<time class='entry-date' datetime='2014-12-22T16:58:40-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>4:58 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/culture/'>culture</a>
+    <a class='category' href='/categories/dev/'>dev</a>, <a class='category' href='/categories/geo/'>geo</a>
   
 </span>
 
@@ -126,7 +126,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/10/08/tech-issues-gentrification-and-the-digital-divide/" data-via="liorrm" data-counturl="http://blog.liorrmorrison.com/2014/10/08/tech-issues-gentrification-and-the-digital-divide/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/" data-via="liorrm" data-counturl="http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -139,10 +139,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2014/10/08/enumerables-some-mixins-for-your-picks-ins/" title="Previous Post: Enumerables: Some Mixins for your Picks-ins">&laquo; Enumerables: Some Mixins for your Picks-ins</a>
+        <a class="basic-alignment left" href="/2014/12/06/phase-1-retrospective/" title="Previous Post: Phase 1 Retrospective">&laquo; Phase 1 Retrospective</a>
       
-      
-        <a class="basic-alignment right" href="/2014/10/17/meta-learning-ftw-pairing-and-feedback/" title="Next Post: Meta-Learning FTW: Pairing &amp; Feedback">Meta-Learning FTW: Pairing &amp; Feedback &raquo;</a>
       
     </p>
   </footer>
@@ -266,8 +264,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://blog.liorrmorrison.com/2014/10/08/tech-issues-gentrification-and-the-digital-divide/';
-        var disqus_url = 'http://blog.liorrmorrison.com/2014/10/08/tech-issues-gentrification-and-the-digital-divide/';
+        var disqus_identifier = 'http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/';
+        var disqus_url = 'http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/';
         var disqus_script = 'embed.js';
       
     (function () {

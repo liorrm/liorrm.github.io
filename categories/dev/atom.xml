@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Dev | Liorr Yehuda Morrison]]></title>
   <link href="http://blog.liorrmorrison.com/categories/dev/atom.xml" rel="self"/>
   <link href="http://blog.liorrmorrison.com/"/>
-  <updated>2014-12-06T18:11:25-08:00</updated>
+  <updated>2014-12-22T22:10:23-08:00</updated>
   <id>http://blog.liorrmorrison.com/</id>
   <author>
     <name><![CDATA[Liorr Yehuda Morrison]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Getting My Feet Wet With Maps and Geo-tech]]></title>
+    <link href="http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/"/>
+    <updated>2014-12-22T16:58:40-08:00</updated>
+    <id>http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology</id>
+    <content type="html"><![CDATA[<p>Now that I have a couple weeks to myself and a decent amount of web development training under my belt, it was finally time to sit down and start researching map-related web development technologies. This is something I have wanted to do from the very beginning, but I lacked the basic programming and development skills to understand any of the map-specific stuff. It will probably come as no surprise at all that I decided to do a map-based project for my P10 challenge at Dev Bootcamp, which is a comprehensive, independent, open-ended project where we build anything, so long as it is a full-stack project (from SQL to CSS). Essentially, the project is a map of all the Mormon/LDS temples in the world. I&rsquo;m not exactly sure what and how many features I will implement, but having a map with custom markers, a SQL database, and some aesthetic user interface would be part of the MVP. I feel extremely fortunate that I happened to enroll at DBC during the holidays, because that means I have two extra weeks for digesting information and looking into geography-related technologies that I&rsquo;ve been intrigued by for so long. I&rsquo;ve spend the last few days learning about MapBox&rsquo;s API, Mapbox.js, which is extremely comprehensive and well documented. I was able to get my own map set up within a few minutes, and MapBox also provides a ton of tutorials for how to use their API, which is essentially a giant JavaScript library that includes the already comprehensive Leaflet.js library. It&rsquo;s been really exciting to dive into this new material and see all the cool features it has to offer, and even more exciting that I actually understand it! In the past few days, I&rsquo;ve been able to create the front-end MVP of my project&mdash;a custom map with an LDS-themed color scheme, golden Angel Moroni markers marking each temple, and a sidebar menu. There were a couple steps to this process:</p>
+
+<p>Thankfully, I found an XML file with all the LDS Temple data, so all it took was parsing the XML using the Ruby Nokogiri gem, creating Ruby hashes from the XML data, and converting those hashes to geoJSON objects using the json gem (what <em>isn&rsquo;t</em> already done for you in the tech world??). That&rsquo;s where MapBox&rsquo;s magic takes over. It handles an array of geoJSON objects and adds a layer on its map with those objects, and - voila! - I had a map with all the temples on it!</p>
+
+<p><img src="/images/MMpreview.png" alt="MormonMapper" /></p>
+
+<p>Now, my next challenge is figuring out what the next steps are for the project. I want to store the temple data in a database, probably PostgreSQL, but I am not entirely sure how to go about this. Do I store the temples as JSON objects within the database itself, or create them from the ActiveRecord objects when the database is queried? Fortunately there are lots of geography-related gems and add-ons in Ruby, including PostGIS and geocoder, so I&rsquo;m sure I&rsquo;ll have a breakthrough shortly. Still, if I had more time to do this project, using Python/Django would probably be the best route in terms of support for geo-features, but that would be a much larger project, as it would mean learning a new language and framework (perhaps something to do post-DBC while job-hunting? I think so!).</p>
+
+<p> In any event, it&rsquo;s been awesome to delve into all this new material &ndash; and even cooler that it indulges my lifelong interest in geography.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 1 Retrospective]]></title>
@@ -129,21 +146,6 @@
 <p>If you are seeking a fact, Google it. Why ask a team of programmers a meta-fact about Ruby that warrants, literally, a one-word response? It&rsquo;s not worth their time, and it&rsquo;s certainly not an efficient use of your time, either! And how about the second example? It&rsquo;s not quite as bad, but again, this is a very basic question that you are better off discovering for yourself through your own research. Read about what an integer is, what a float is, and try working with them. If you come across a specific problem regarding the use of integers and floats in a program, <em>that&rsquo;s</em> the time to ask a question.</p>
 
 <p>I know I may have veered a bit into what makes a good question on the Internet, but the basic tenets still apply to questions asked in the physical world.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Event Listeners: The Critical Link]]></title>
-    <link href="http://blog.liorrmorrison.com/2014/11/08/event-listeners-the-critical-link/"/>
-    <updated>2014-11-08T15:38:35-08:00</updated>
-    <id>http://blog.liorrmorrison.com/2014/11/08/event-listeners-the-critical-link</id>
-    <content type="html"><![CDATA[<p>JavaScript event listeners are kind of like the nervous system of a website. Without them, the website does not have the ability to sense, or &ldquo;listen to&rdquo;, actions the user can take (such as clicking, pressing keys, loading the page, etc). I first learned event listeners through programming my first JS project, the <a href="http://blog.liorrmorrison.com/dbc/airport">airporter game</a>. Event listeners allow you to change or manipulate HTML/CSS elements when a certain element &ldquo;hears&rdquo; an event. To illustrate this idea, let&rsquo;s take an example from my airport game. It would help you understand this explanation if you played a quick round of the game first! In the game, I have two event listeners, one that targets the entire window and one that targets an HTML element:</p>
-
-<pre><code class="javascript">airbus.addEventListener('click', clearWay)
-window.addEventListener('keydown', move)
-</code></pre>
-
-<p>Let&rsquo;s analyze the syntax of these event listeners. The functionality of the <code>addEventListener</code> function is obvious enough, but what&rsquo;s going on with the rest of it? You call the <code>addEventListener</code> function on an HTML/DOM element. In the first example, it is being called on <code>airbus</code>, which is an a div in the HTML with the id &ldquo;airbus&rdquo;. If you have played the game, the airbus is the &ldquo;little scoundrel&rdquo; airplane that gets in the way of your progress! Now, what&rsquo;s going on in the parenthesis? The <code>addEventListener</code> function takes two parameters: an event, and a function to run when that event occurs (there is an optional boolean third parameter, but it is pretty technical so I won&rsquo;t discuss it here). In the first example, the event is &lsquo;click&rsquo;, and the function is clearWay. So when the airbus element is clicked, the clearWay function will be run. I defined the clearWay function such that it changes the element&rsquo;s top style to 200px from where it originally was lower down on the runway. How does this manifest? Well, if you click the airbus on the page, it moves up away from the runway! As for the second example, why do we target the window if we really mean to move the other airplane? Well, the &lsquo;keydown&rsquo; event can&rsquo;t really target a particular HTML DOM element. The only part of a web page that can &ldquo;hear&rdquo; it is the window itself! That allows you to use the arrow keys to control the airplane without having to click, scroll over, or do anything to the airplane itself. As you can see, the second event listener executes the &ldquo;move&rdquo; function upon the &lsquo;keydown&rsquo; event (which, in the move function, I limit to just the arrow keys). The move function changes the boeing element&rsquo;s CSS positioning. Event listeners are the link between JavaScript and HTML/CSS elements. Without them, no script would be able communicate with and manipulate the web page!</p>
 ]]></content>
   </entry>
   

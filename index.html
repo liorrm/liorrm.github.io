@@ -9,7 +9,7 @@
   <meta name="author" content="Liorr Yehuda Morrison">
 
   
-  <meta name="description" content="It has been a little while since I&rsquo;ve posted on here, but of course that&rsquo;s to be expected, since the intensive, on-site portion of DBC &hellip;">
+  <meta name="description" content="Now that I have a couple weeks to myself and a decent amount of web development training under my belt, it was finally time to sit down and start &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +66,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/">Getting My Feet Wet With Maps and Geo-tech</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-12-22T16:58:40-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>4:58 pm</span></time>
+        
+           | <a href="/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/#disqus_thread"
+             data-disqus-identifier="http://blog.liorrmorrison.com/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Now that I have a couple weeks to myself and a decent amount of web development training under my belt, it was finally time to sit down and start researching map-related web development technologies. This is something I have wanted to do from the very beginning, but I lacked the basic programming and development skills to understand any of the map-specific stuff. It will probably come as no surprise at all that I decided to do a map-based project for my P10 challenge at Dev Bootcamp, which is a comprehensive, independent, open-ended project where we build anything, so long as it is a full-stack project (from SQL to CSS). Essentially, the project is a map of all the Mormon/LDS temples in the world. I&rsquo;m not exactly sure what and how many features I will implement, but having a map with custom markers, a SQL database, and some aesthetic user interface would be part of the MVP. I feel extremely fortunate that I happened to enroll at DBC during the holidays, because that means I have two extra weeks for digesting information and looking into geography-related technologies that I&rsquo;ve been intrigued by for so long. I&rsquo;ve spend the last few days learning about MapBox&rsquo;s API, Mapbox.js, which is extremely comprehensive and well documented. I was able to get my own map set up within a few minutes, and MapBox also provides a ton of tutorials for how to use their API, which is essentially a giant JavaScript library that includes the already comprehensive Leaflet.js library. It&rsquo;s been really exciting to dive into this new material and see all the cool features it has to offer, and even more exciting that I actually understand it! In the past few days, I&rsquo;ve been able to create the front-end MVP of my project&mdash;a custom map with an LDS-themed color scheme, golden Angel Moroni markers marking each temple, and a sidebar menu. There were a couple steps to this process:</p>
+
+<p>Thankfully, I found an XML file with all the LDS Temple data, so all it took was parsing the XML using the Ruby Nokogiri gem, creating Ruby hashes from the XML data, and converting those hashes to geoJSON objects using the json gem (what <em>isn&rsquo;t</em> already done for you in the tech world??). That&rsquo;s where MapBox&rsquo;s magic takes over. It handles an array of geoJSON objects and adds a layer on its map with those objects, and - voila! - I had a map with all the temples on it!</p>
+
+<p><img src="/images/MMpreview.png" alt="MormonMapper" /></p>
+
+<p>Now, my next challenge is figuring out what the next steps are for the project. I want to store the temple data in a database, probably PostgreSQL, but I am not entirely sure how to go about this. Do I store the temples as JSON objects within the database itself, or create them from the ActiveRecord objects when the database is queried? Fortunately there are lots of geography-related gems and add-ons in Ruby, including PostGIS and geocoder, so I&rsquo;m sure I&rsquo;ll have a breakthrough shortly. Still, if I had more time to do this project, using Python/Django would probably be the best route in terms of support for geo-features, but that would be a much larger project, as it would mean learning a new language and framework (perhaps something to do post-DBC while job-hunting? I think so!).</p>
+
+<p> In any event, it&rsquo;s been awesome to delve into all this new material &ndash; and even cooler that it indulges my lifelong interest in geography.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -794,134 +834,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/">Ruby Classes: Encapsulating State and Behavior</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-10-18T13:55:20-07:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>1:55 pm</span></time>
-        
-           | <a href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/#disqus_thread"
-             data-disqus-identifier="http://blog.liorrmorrison.com/2014/10/18/ruby-classes-encapsulating-state-and-behavior/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In Ruby, a class is an encapsulation of state and behavior. As we know, Ruby is an object-oriented programming language, so (almost) everything in Ruby is an object. Furthermore, all objects belong to a class, which you can loosely think of as a &ldquo;species&rdquo; of objects. Each class has its own set of characteristics. For example, according to the Ruby docs, the Array class is defined as &ldquo;ordered, integer-indexed collections of any object.&rdquo; The class comes with methods that can be called upon an instance, or example, of that class. Ruby allows users to create classes and to modify existing ones. To better demonstrate the concept of classes, I&rsquo;ll create a class called Person:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Person</span>
-</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:sex</span><span class="p">,</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">:height</span><span class="p">,</span> <span class="ss">:town</span><span class="p">,</span> <span class="ss">:religion</span><span class="p">,</span> <span class="ss">:occupation</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">town</span><span class="p">,</span> <span class="n">religion</span><span class="p">,</span> <span class="n">occupation</span><span class="p">)</span>
-</span><span class='line'>    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
-</span><span class='line'>    <span class="vi">@sex</span> <span class="o">=</span> <span class="n">sex</span>
-</span><span class='line'>    <span class="vi">@age</span> <span class="o">=</span> <span class="n">age</span>
-</span><span class='line'>    <span class="vi">@height</span> <span class="o">=</span> <span class="n">height</span>
-</span><span class='line'>    <span class="vi">@town</span> <span class="o">=</span> <span class="n">town</span>
-</span><span class='line'>    <span class="vi">@religion</span> <span class="o">=</span> <span class="n">religion</span>
-</span><span class='line'>    <span class="vi">@occupation</span> <span class="o">=</span> <span class="n">occupation</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">sex_change</span>
-</span><span class='line'>    <span class="k">if</span> <span class="vi">@sex</span> <span class="o">==</span> <span class="s2">&quot;male&quot;</span>
-</span><span class='line'>      <span class="vi">@sex</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span>
-</span><span class='line'>    <span class="k">elsif</span> <span class="vi">@sex</span> <span class="o">==</span> <span class="s2">&quot;female&quot;</span>
-</span><span class='line'>      <span class="vi">@sex</span> <span class="o">=</span> <span class="s2">&quot;male&quot;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">get_old</span>
-</span><span class='line'>    <span class="vi">@age</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">grow</span><span class="p">(</span><span class="n">new_height</span><span class="p">)</span>
-</span><span class='line'>    <span class="vi">@height</span> <span class="o">=</span> <span class="n">new_height</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">new_town</span><span class="p">)</span>
-</span><span class='line'>    <span class="vi">@town</span> <span class="o">=</span> <span class="n">new_town</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">new_religion</span><span class="p">)</span>
-</span><span class='line'>    <span class="vi">@religion</span> <span class="o">=</span> <span class="n">new_religion</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">change_career</span><span class="p">(</span><span class="n">new_job</span><span class="p">)</span>
-</span><span class='line'>    <span class="vi">@occupation</span> <span class="o">=</span> <span class="n">new_job</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To begin, you need to initialize a new instance of that class. Basically, you need to create an individual person from the theoretical class Person. As you can see in the initialize function, I have created a few characteristics each person should have: sex, age, height, town, religion, and occupation. Of course there are many others I could include, but these were the ones that immediately came to mind. When you initialize a new instance of person, you must pass in the above seven arguments; so for example, you would type in:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Liorr</span> <span class="o">=</span> <span class="no">Person</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Liorr&quot;</span><span class="p">,</span> <span class="s2">&quot;male&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;6&#39;1&quot;</span><span class="p">,</span> <span class="s2">&quot;San Francisco&quot;</span><span class="p">,</span> <span class="s2">&quot;Agnostic&quot;</span><span class="p">,</span> <span class="s2">&quot;Programmer&quot;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that we&rsquo;ve initialized it, Liorr is an instance of the class Person. In the Person class, I have created several attr_readers (attribute readers), which allow the user to access information about Liorr. To see this information, simply type Liorr.sex, Liorr.age, Liorr.height, etc. into the command line, and the values with be returned. I specifically made all these attr_readers rather than attr_accessors because I want to limit the user to changing this information by using only the instance methods I created. As you can see, I had a some fun creating the method names. You can call <code>Liorr.sex_change</code> to change my sex to female, <code>Liorr.get_old</code> to add one year to my age, <code>Liorr.grow(new_height)</code> to change my height to a new input height, <code>Liorr.move(new_town)</code> to change my town to a new input town, <code>Liorr.convert(new_religion)</code> to change my religion to a new input religion, and <code>Liorr.change_career(new_job)</code> to change my occupation to a new input occupation.</p>
-
-<p>Classes are defined by their state and behavior. All of these characteristics &ndash; age, sex, height, religion, etc. &ndash; give the class Person its state, stored in instance variables, while the instance methods &ndash; #grow, #move, #convert, etc. &ndash; give its behavior. I used the Person class as an example because it is easy to demonstrate state and behavior with something so familiar and tangible - people do have all these states and behaviors in the real world! Now all you have to do is think of each class as a different species of object, each endowed with a set of character traits. Arrays and hashes, given the overlap in their states and behaviors, are two closely related classes. To draw another comparison to the real world, you could consider arrays and hashes as you would consider humans and chimpanzees &ndash; very closely related, but ultimately a different species.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -935,6 +847,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2014/12/22/getting-my-feet-wet-with-maps-and-geotechnology/">Getting My Feet Wet With Maps and Geo-tech</a>
+      </li>
     
       <li class="post">
         <a href="/2014/12/06/phase-1-retrospective/">Phase 1 Retrospective</a>
@@ -970,10 +886,6 @@
     
       <li class="post">
         <a href="/2014/10/24/variable-scope-from-local-to-global/">Variable Scope: From Local to Global</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/10/18/ruby-classes-encapsulating-state-and-behavior/">Ruby Classes: Encapsulating State and Behavior</a>
       </li>
     
   </ul>
